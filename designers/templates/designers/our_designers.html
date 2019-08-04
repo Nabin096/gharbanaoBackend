@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Designers</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="{% static 'designers/css/ourdesigners.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+<body>
+<div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="{% url 'designers:index' %}" class="navbar-brand">
+                <img src="{% static 'designers/img/gharBanaoIcon.png' %}">
+            </a>
+        </div>
+         <br>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'designers:index' %}">HOME</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="{% url 'designers:login' %}">LOGIN</a></li>
+			<li><a href="{% url 'designers:register' %}">REGISTER</a></li>
+        </ul>
+
+    </div>
+
+
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div align=center>
+{% if all_designers %}
+<ul>
+    {% for designer in all_designers %}
+      <div style="margin:10px;background: url({{designer.design1.url}});background-position: center;background-repeat:no-repeat;box-shadow:0px 1px 10px ;background-size: cover;padding-top:140px;width:960px;height:400px">
+
+		<div style="width:75%;min-width:350px;height:100%;background-color:rgba(255,255,255,0.9)">
+			<div style="padding-top:220px;margin-right:10px;float:left;border:5px solid #00a667;width:220px;height:100%;background:url({{designer.profilepic.url}}) #00a667 no-repeat;background-size:contain">
+			<a href="#" style="background-color:#008553;border-radius:100px;padding:8px 60px 8px 60px;font-family:UbuntuL;color:#ededed;font-size:120%;font-weight:bold">Portfolio</a>
+			</div>
+			<p style="float:right;font-family:Ubuntu;font-weight:bold;font-size:100%;color:#008553;margin-bottom:10px;margin-top:5px">Points
+				<span style="font-weight:normal">{{designer.points}}</span></p>
+			<p align=left style="margin-left:-10px;font-family:DUBIEL;line-height:100%;font-size:400%"> {{designer.name}}<br>
+			<span style="font-family:Nill;font-size:30%;font-weight:bold;line-height:140%;color:#008553"> {{designer.firmname}}
+			</span></p>
+
+			<h1 align=left style="font-family:DUBIEL;font-weight:bold;font-size:150%;color:#008553;;margin-bottom:10px;margin-top:-5px">The Designer
+				</h1>
+			<div class="about" align=left style="margin-top:-10px;font-family:UbuntuL;color:#707070;font-size:90%;font-weight:bold;">{{designer.AboutMe}}
+			</div>
+			<h1 align=left style="font-family:DUBIEL;font-weight:bold;font-size:150%;color:#008553;margin-bottom:10px;margin-top:-5px">The Designs
+				</h1>
+			<div class="about" align=left style="margin-top:-10px;font-family:UbuntuL;color:#707070;font-size:90%;font-weight:bold">{{designer.AboutYourDesigns}}
+			
+		</div>
+</div>
+    <br>
+    <br>
+    <br>
+    {% endfor %}
+
+</ul>
+{% else %}
+  <h3>You do not have any designers</h3>
+{% endif %}
+</div>
+</body>
+</html>

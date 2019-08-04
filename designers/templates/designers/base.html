@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ghar Banao</title>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'designers/css/styles.css' %}">
+     
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">
+                <img src="{% static 'designers/img/gharBanaoIcon.png' %}">
+            </a>
+        </div>
+         <br>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">OUR DESIGNERS</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">LOGIN/REGISTER</a></li>
+        </ul>
+
+    </div>
+
+
+</nav>
+{% block body %}
+{% endblock %}
+
+</body>
+</html>

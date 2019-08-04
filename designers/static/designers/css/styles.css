@@ -1,0 +1,210 @@
+/* Master Styles */
+*{
+   margin:0px;
+   padding:0px;
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+
+}
+
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  overflow-X:hidden;
+
+}
+@font-face{
+  font-family:Ubuntu;
+  src:url(../Fonts/Ubuntu-R_0.woff);
+}
+
+@font-face {
+  font-family:UbuntuL;
+  src:url(../Fonts/Ubuntu-L.woff);
+ }
+
+@font-face{
+  font-family:DUBIEL;
+  src:url(../Fonts/DUBIEL.woff);
+}
+@font-face{
+  font-family:Neuton-Regular;
+  src:url(../Fonts/Neuton-Regular.woff);
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url(../Fonts/GEOSANSLIGHT.woff);
+	font-weight: lighter;
+}
+@font-face {
+    font-family: points;
+    src: url(../Fonts/Nilland.woff);
+	font-weight: lighter;
+}
+
+@font-face {
+    font-family: headerFont;
+    src: url(../Fonts/NexaBold.woff);
+	font-weight: lighter;
+	width: 300%;
+	box-shadow: 2px 2px 6px #aaaaaa;
+}
+#designerDashboard{
+ background-image:url('../img/designerDashboard.jpg');
+ background-position:center;
+ background-size:cover;
+ height:425px;
+}
+
+#opening{
+ margin-left:70px;
+ margin-right:70px;
+ text-align:center;
+ padding-top:10px;
+ font-family: myFirstFont;
+ line-height:150%;
+ font-size:20px;
+}
+
+
+
+}
+#designerDashboard{
+  box-shadow: 2px 2px 6px #aaaaaa;
+}
+
+
+#outerpoints{
+	 background-image:url('../img/tile.jpg');
+     background-repeat: repeat;
+
+}
+#pointheader{
+     font-family:DUBIEL;
+	 text-align:center;
+	 color:#262626;
+	 text-shadow: 2px 2px 5px rgba(255,255,255, 1);
+	 font-size:60px;
+	 font-weight:bold;
+}
+u{
+    color:"#aaaaaa";
+}
+.img-circle {
+    border-radius: 50%;
+}
+#intro{
+    font-family: myFirstFont;
+	text-align:center;
+}
+#in{
+   padding:2px;
+}
+.points{
+	 display:inline-block;
+	 margin:20px;
+	 height:200px;
+	 width:260px;
+}
+#joiningHeader{
+  text-align:center;
+
+  font-size: 400%;
+  font-family:myFirstFont;
+}
+#tag{
+  text-align:center;
+  font-size:25px;
+  font-weight:lighter;
+  font-family:Neuton-Regular;
+}
+#howitworks{
+	width:100%;
+	padding:20px;
+	background-color: #F1F6FA;
+	}
+.howdiv{
+ display: inline-block;
+ padding:5px;
+ border:2px solid #008553;
+ color:#008553;
+ margin:0px 10px 0px 10px;
+ width:22%;
+ border-radius:20px;
+}
+
+#howitworks div img{
+	margin:20px;
+}
+
+#learn{
+	font-size:120%;
+	color:#008553;
+	width:250px;
+	height:60px;
+	font-family:Ubuntu;
+	border-radius:10px;
+	border: 1px solid #008553;
+	transition-duration: 0.1s;
+	cursor: pointer;
+	padding:10px 40px 10px 40px ;
+	text-decoration: none;
+}
+
+#learn:hover{
+	background-color: #008553;
+	color:#ffffff;
+	box-shadow:2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+.applyhere{
+  text-align:center;
+  font-family:Neuton-Regular;
+  font-size:25px;
+}
+
+
+
+.how{
+  font-size:105%;
+  font-family: UbuntuL;
+  text-align:center;
+}
+
+
+
+#Join {
+     background-image:url('../img/designerFooter.png');
+     background-size:cover;
+	 background-position:center;
+}
+
+#Join a{
+	font-size:120%;
+	color:white;
+	width:250px;
+	height:100px;
+	background-color:rgba(0, 133, 83, 1);
+	font-family:Ubuntu;
+	border-radius:10px;
+	border:none;
+	transition-duration: 0.2s;
+	cursor: pointer;
+	padding:10px 40px 10px 40px ;
+	text-decoration: none;
+}
+
+
+#Join a:hover{
+    background-color:rgba(0, 133, 83, 1);
+    color: white;
+	transform: scale(1.5,1.5);
+	box-shadow: 2px 2px 6px #555555;
+    text-decoration: none;
+
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Seller Portal</title>
+    </head>
+    <body>
+        <h1>Seller's Portal</h1>
+        <form method="post" action="{% url 'seller:dashboard' %}">
+            {%  csrf_token %}
+            emailid: <input type="email" name="emailid">
+            <br>
+            <br>
+            password: <input type="password" name="password">
+            <br>
+            <button type="submit">Login</button>
+         </form>
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'seller:register' %}">Click here to register</a>
+
+    </body>
+</html>

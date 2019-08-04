@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{dbuser.0.name}} - GharBanao</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'designers/css/designerinfo.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+    <link rel="stylesheet" href="{% static 'designers/css/profile.css' %}">
+    <script src="{% static 'customers/js/jquery.min.js' %}"></script>
+    <script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <center>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </center>
+            </button>
+
+            <a class="navbar-brand" href="{% url 'designers:index' %}"> <img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'designers:myjobs' %}">Projects<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Our Designers<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">About Us<span class="sr-only">(current)</span></a></li>
+                <li><a type="button" href="{% url 'designers:logout' %}" class="btn my_project">Logout</a></li>
+
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid page" id="page">
+    {% if dbuser %}
+    {% for designer in dbuser %}
+    <div class="row no-margin container-fluid no-padding header" style="background:url({{designer.design1.url}}) no-repeat center;background-size: cover;">
+        <div class="cover">
+            <div class="row no-margin header-info">
+                <div class="col-xs-4 no-padding profilepic" style="background:url({{designer.profilepic.url}}) no-repeat center;background-size: cover;">
+                    <div class="edit-hover">
+                        <img class="edit-icon" data-toggle="modal" data-target="#editdp" aria-haspopup="true" aria-expanded="false" src="{% static 'designers/img/edit_icon.png' %}">
+                    </div>
+                    <div class="modal" id="editdp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h3 class="modal-title" id="myModalLabel"><center>Edit your profile picture</center></h3>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="post" action="{% url 'designers:edit_dp' %}"  enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <center>
+                                            <div class="row no-margin"> <h5>Click on the image to change</h5> </div>
+
+                                            <div class="row no-margin">
+                                                <div class="row no-margin preview">
+                                                    <img id="blah" src="{{designer.profilepic.url}}">
+                                                    <input type="file" id="imgInp" name="profilepic">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <button type="submit"><b>Save</b></button>
+                                        </center>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-8 header-details">
+                    <div class="row no-margin">
+                        <p>{{designer.name}}</p>
+                        <br>
+                        <hr>
+                    </div>
+
+                    <div class="row no-margin ">
+                        <div class="col-sm-4 col-xs-6 no-padding">
+                            <b>Firm name:</b>
+                        </div>
+                        <div class="col-sm-8 col-xs-6 no-padding">
+                            {{designer.firmname}}
+                        </div>
+                    </div>
+
+                    <div class="row no-margin">
+                        <div class="col-sm-4 col-xs-6 no-padding">
+                            <b>Address:</b>
+                        </div>
+                        <div class="col-sm-8 col-xs-6 no-padding">
+                            {{designer.address}}
+                        </div>
+                    </div>
+
+                    <div class="row no-margin">
+                        <div class="col-sm-4 col-xs-6 no-padding">
+                            <b>GharBanao Points:</b>
+                        </div>
+                        <div class="col-sm-8 col-xs-6 no-padding">
+                            {{designer.points}}
+                        </div>
+                    </div>
+
+                    <div class="row no-margin">
+                        <div class="col-sm-4 col-xs-6 no-padding">
+                            <b>Email ID:</b>
+                        </div>
+                        <div class="col-sm-8 col-xs-6 no-padding">
+                            {{designer.email}}
+                        </div>
+                    </div>
+
+                    <div class="row no-margin">
+                        <div class="col-sm-4 col-xs-6  no-padding">
+                            <b>Contact:</b>
+                        </div>
+                        <div class="col-sm-8 col-xs-6  no-padding">
+                            {{designer.contact}}
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 edit" align="right">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+
+
+    <div class="row no-margin tabs" align="center">
+        <ul class="tab-links">
+            <li class="active"><a data-toggle="tab" href="#myblogs">My Blogs</a></li>
+            <li><a data-toggle="tab" href="#portfolio">Portfolio</a></li>
+            <li><a data-toggle="tab" href="#about">About</a></li>
+            <li><a data-toggle="tab" href="#request">Request</a></li>
+        </ul>
+    </div>
+
+    <div class="row no-margin tab-content profile-details" align="center">
+        <div id="myblogs" class="tab-pane fade in active">
+            <div class="row no-margin block">
+                <h4>Write a blog</h4>
+                <hr>
+                <form  method="POST" action="{% url 'designers:blog' %}"  enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input  type="text"  class="text-input" name="title" placeholder="Enter title of your blog">
+                    <textarea  class="textarea-input" name="content" placeholder="Write your blog content here"></textarea>
+                    <div class="row no-margin blog-buttons">
+                        <div class="col-xs-6 no-padding" align="left"><input type="file" class="attach" name="image"></div>
+                        <div class="col-xs-6 no-padding" align="right"><button type="submit" class="post-blog">Post</button></div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row no-margin block">
+                {% for blog in blogList %}
+                <div class="row article">
+                    <div class="col-xs-4 no-padding thumb">
+                        {% if blog.image %}
+                        <div style="background: url({{blog.image.url}})  no-repeat center; background-size: cover;">
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-xs-7 content">
+                        <h2>{{blog.title}}</h2>
+                        <p class="content-preview">{{blog.subject}}</p>
+                        <p>
+                            Posted By {{blog.author.name}} on {{blog.dated}}
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div id="portfolio" class="tab-pane fade">
+            <div class="col-xs-12">
+                <h3 style="color: #123c88">Portfolio</h3>
+                <div class="row no-margin about-hover" align="right">
+                    <img class="edit-icon" data-toggle="modal" data-target="#editdes" aria-haspopup="true" aria-expanded="false" src="{% static 'designers/img/edit_icon.png' %}">
+
+                </div>
+
+                <div class="modal" id="editdes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <center><h3 class="modal-title" id="myModalLabel">Update any of the uploaded designs</h3></center>
+                            </div>
+
+                            <div class="modal-body">
+                                <center>
+
+                                    <form method="post" action ="{% url 'designers:edit_designs' %}" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <h5>Select the design you want to change:</h5>
+                                        <select name="selected">
+                                            <option>design1</option>
+                                            <option>design2</option>
+                                            <option>design3</option>
+                                        </select>
+                                        <h5>Click on the image below to upload new image:</h5>
+                                        <div class="row no-margin preview">
+                                            <img id="blah1" src="{% static 'customers/img/face1.jpg'%}">
+                                            <input  name="design" id="imgInp1" type="file" >
+                                        </div>
+                                        <h5>Choose design-type of the newly uploaded design:</h5>
+                                        <select name="designtype" >
+                                            <option>Traditional</option>
+                                            <option>Modern</option>
+                                            <option>Minimalistic</option>
+                                            <option>Contemporary</option>
+                                            <option>Industrial</option>
+                                            <option>MidCenturyModern</option>
+                                            <option>Scandinian</option>
+                                            <option>Bohemian</option>
+                                            <option>Retro</option>
+                                        </select>
+                                        <br>
+                                        <button type="submit">Submit</button>
+                                    </form>
+
+
+                                </center>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-4"><img class="img-responsive" src="{{designer.design1.url}}"></div>
+
+                <div class="col-xs-4"><img class="img-responsive" src="{{designer.design2.url}}"></div>
+
+                <div class="col-xs-4"><img class="img-responsive" src="{{designer.design3.url}}"></div>
+
+            </div>
+        </div>
+
+        <div id="about" class="tab-pane fade">
+            <div class="col-xs-12 block">
+                <h4 style="color: #123c88">About the designer</h4>
+                <div class="row no-margin about-hover" align="right">
+                    <img class="edit-icon" data-toggle="modal" data-target="#editabout" aria-haspopup="true" aria-expanded="false" src="{% static 'designers/img/edit_icon.png' %}">
+
+                </div>
+                <div class="modal" id="editabout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <center><h3 class="modal-title" id="myModalLabel">Change details about you and your designs</h3></center>
+                            </div>
+
+                            <div class="modal-body">
+                                <center>
+
+                                    <form method="post" action="{% url 'designers:edit_about'  %}" >
+                                        {% csrf_token %}
+                                        <div class="row no-margin edit-modal" align="left" >
+                                            About You: <br>
+                                            <textarea class="textarea-input" type="text" name="AboutMe"></textarea>
+                                            <br>
+                                            About Your Designs: <br>
+                                            <textarea class="textarea-input" type="text" name="AboutYourDesigns"></textarea>
+                                            <br>
+                                            <div><center><button type="submit">Submit</button></center></div>
+                                        </div>
+                                    </form>
+
+                                </center>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <p>{{designer.AboutMe}}</p>
+            </div>
+
+            <div class="col-xs-12 block">
+                <h4 style="color: #123c88">About the designs</h4>
+                <div class="row no-margin about-hover" align="right">
+                    <img class="edit-icon" data-toggle="modal" data-target="#editabout" aria-haspopup="true" aria-expanded="false" src="{% static 'designers/img/edit_icon.png' %}">
+
+                </div>
+
+                <hr>
+                <p> {{designer.AboutYourDesigns}} </p>
+            </div>
+        </div>
+
+        <div id="request" class="tab-pane fade">
+            <h3 style="color: #123c88">Request new item here</h3>
+            <p>Here you can place your request for new raw materials. </p>
+
+            <h4>Request portal coming soon.</h4>
+        </div>
+
+
+    </div>
+
+    {% endfor %}
+    {% endif %}
+
+    <div class="container footer">
+        <div class="row"><!-- row -->
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 tyc"><!-- widgets column center -->
+                <img class="img-responsive" src="{% static 'customers/img/logo_bw.png' %}">
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Designers</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">LEGAL</h4>
+                    <ul>
+                        <li><a  href="#">Terms and Conditions</a></li>
+                        <li><a  href="#">Privacy Policy</a></li>
+                        <li><a  href="#">Payment Securities</a></li>
+                        <li><a  href="#">Partners</a></li>
+                    </ul>
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-sm-4 col-xs-12 mycol list"><!-- widgets column left -->
+                    <h4 class="title-widget">CONNECT</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/GharBanao/"><img src="{% static 'customers/img/fb.png' %}"></a>
+                        <a href="https://twitter.com/GharBanao"><img src="{% static 'customers/img/tweet.png' %}"></a>
+                        <a href="https://www.linkedin.com/company-beta/10652164/"><img src="{% static 'customers/img/in.png' %}"></a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center><p class="copyright"> Copyright © 2017 Tune Your Construction (P) Ltd.</p></center>
+    </div>
+
+
+</div>
+<script>
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>
+<script>
+    function readURL1(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah1').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp1").change(function(){
+    readURL1(this);
+});
+</script>
+
+</body>
+</html>

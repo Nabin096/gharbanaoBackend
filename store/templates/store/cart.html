@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap-select/dist/css/bootstrap-select.min.css' %}">
+
+</head>
+<body>
+
+    {% for qty, product in products.items %}
+    <div>
+        Name: {{ product.name }} <br>
+        Quantity: <input type="number" id="{{ product.id }}" value="{{ qty }}"> <br>
+        <button class="btn btn-danger" value="{{ product.id }}">Delete</button>
+    </div><br><br>
+    {% endfor %}
+    <br>
+    <a class="btn btn-success" href="{% url 'store:checkout' %}">Checkout Cart</a>
+
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'store/js/cart.js' %}"></script>
+</body>
+</html>

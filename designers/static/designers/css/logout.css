@@ -1,0 +1,36 @@
+*{
+	padding:0px;
+	margin:0px;
+	max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    box-sizing: border-box;
+
+}
+body {
+    background-image: url("../img/bg.png");
+    background-repeat: repeat;
+}
+
+@font-face {
+    font-family: Nill;
+    src: url(../Fonts/Nilland.woff);
+	font-weight: lighter;
+	}
+
+@font-face{
+  font-family:Ubuntu;
+  src:url(../Fonts/Ubuntu-R_0.woff);
+
+}
+
+
+#link a  {
+			color:#123c88;
+		   }
+
+#link a:hover{
+			color:#00A878;
+			text-decoration:none;
+
+             }

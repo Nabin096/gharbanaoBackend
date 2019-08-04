@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adddress</title>
+</head>
+<body>
+ <form method="post" action="{% url 'designers:edit_address' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        profilepic: <input type="text" name="address">
+        <br>
+        <button type="submit">Change</button>
+
+    </form>
+  <a href="{% url 'designers:login'  %}">Skip</a>
+</body>
+</html>

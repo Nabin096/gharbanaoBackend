@@ -1,0 +1,20 @@
+{
+  "name": "GharBanao",
+  "authors": [
+    "vortex2210 <admin@gharbanao.co>"
+  ],
+  "description": "website",
+  "main": "",
+  "license": "MIT",
+  "homepage": "gharbanao.co",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

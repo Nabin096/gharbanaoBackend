@@ -1,0 +1,269 @@
+.blue_color{
+	color: #337ab7;
+}
+.green_color{
+	color: #06ad14;
+}
+.fb-image-profile {
+    margin: -128px 10px 0px 41px;
+    z-index: 9;
+    width: 228px;
+    width: 209px;
+    margin-bottom: 12px;
+   }
+
+.main-info2{
+    border-radius:1px;
+    background-color: white;
+    -webkit-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+-moz-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+
+.fb-image-profile
+{
+    margin: -160px 10px 0px 0px;
+    z-index: 9;
+    width: 228px;
+    width: 228px;
+    margin-bottom: 12px;
+}
+
+.modal-content{
+    border-radius: none !important;
+
+}
+
+.person-info-blockchilddd ul li {
+    list-style: none;
+       margin-right: 27px;
+    float: left;
+    margin-bottom: 11px;
+    margin-top: 3px;
+}
+
+.main-info{
+
+
+    border-radius:1px;
+    background-color: white;
+  -webkit-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+-moz-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.table-info{
+
+
+    border-radius: 2px;
+    background-color: white;
+    -webkit-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+-moz-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+margin-top: 10px;
+}
+
+.content_body{
+    margin-top: 3px;
+}
+
+.background_gray{
+	background-color: transparent;
+}
+
+
+.fb-profile-text>h1{
+    font-weight: 700;
+    font-size:16px;
+}
+
+
+.pull-right {
+    float: right!important;
+    margin-top: 29px;
+}
+
+#bg-profile{
+
+        background-color:rgb(247, 247, 247);
+        box-shadow: 1px 1px 2px #888888;
+        margin-top: 0px;
+}
+
+}
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+     margin-right: 0px;
+     margin-left: -0px;
+}
+
+.fa1{
+    font-size: 20px;
+    margin-right: 5px;
+    color:#a66ed0;
+}
+.person-info-blockchilddd ul{
+    margin-left: 12px;
+}
+
+
+.fb-image-lg{
+
+    height:175px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: -5;
+}
+
+
+.person-info-blockchildd h3{
+font-size: 1em;
+margin-left: 9%
+}
+
+
+.icons_bar{
+	list-style: none;
+	float: left;
+	color: gray;
+	
+}
+
+.form-control{
+    border-radius: 0px;
+}
+
+
+.icons_bar{
+	margin-left: -20px;
+}
+
+
+.icons_bar li{
+	float: left;
+	margin-right: 15px;
+}
+.icon_margin{
+	margin-right: 10px;
+}
+.main-info hr {
+    margin-top: 7px;
+    margin-bottom: 11px;
+}
+.main-info{
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 4px;
+}
+.main-info p{
+   color: gray
+}
+.post{
+	margin-bottom: 7px;
+}
+.The_designer{
+	padding:30px;
+}
+.pic_side{
+	padding: 5px;
+	font-size: 12px;
+}
+.pic_side2{
+	padding-right: 0px;
+	
+	padding-top:0px;
+    padding-bottom: 10px
+	font-size: 12px;
+}
+.pic_side2 img{
+      width: 50px;
+      margin-right: 0px;
+}
+.text_side{
+	margin-top: 10px
+}
+.text_side2{
+	margin-top:0px
+	padding-top:10px;
+	padding-right: 0px
+	padding-left:0px;
+	font-size: 12px;
+	margin-left: -82px;
+}
+.portfolio_padding{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-top: 1px;
+}
+td{
+	color: gray
+}
+.position{
+	margin-top: -120px;
+	margin-right: -16px;
+	background-color:#e8ab07;
+	width:300px;
+	
+}
+@media(max-width: 775px){
+
+
+.position {
+    margin-top: -48px;
+    margin-right: 308px;
+    background-color: #6f4d88;
+    width: 150px;
+    display: none;
+}
+}
+
+
+a{
+	color: #253eaa;
+}
+
+.comment_card{
+  border-radius:1px;
+    background-color: white;
+    -webkit-box-shadow: -1px -1px 3px 0px rgba(0,0,0,0.12);
+    -moz-box-shadow: -1px -1px 3px 0px rgba(0,0,0,0.12);
+    box-shadow: -1px -1px 3px 0px rgba(0,0,0,0.12);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+
+.well{
+	padding: 5px;
+}
+
+
+.pad_top{
+	padding-top: 50px;
+}
+
+
+.position {
+    margin-top: -62px;
+    margin-right: -10px;
+    background-color: #e8ab07;
+    width: 300px;
+}

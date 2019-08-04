@@ -1,0 +1,22 @@
+*{
+	padding:0px;
+	margin:0px;
+	max-width: 100%;
+    height: auto;
+    width: auto;
+    box-sizing: border-box;
+
+}
+
+
+@font-face {
+    font-family: Nill;
+    src: url(../Fonts/Nilland.woff);
+	font-weight: lighter;
+	}
+
+@font-face{
+  font-family:Ubuntu;
+  src:url(../Fonts/Ubuntu-R_0.woff);
+
+}

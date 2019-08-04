@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load staticfiles %}
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ghar Banao Store</title>
+
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap-select/dist/css/bootstrap-select.min.css' %}">
+
+</head>
+
+<body>
+
+    {% if dbuser %}
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+                <form class="navbar-form navbar-left" action="{% url 'store:searchres' %}" method="get">{% csrf_token %}
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <select class="selectpicker" id="select" name="select" style="display: none;">
+                                <option>All Categories</option>
+                                {% for category in categories %}
+                                <option>{{category.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div><!-- /btn-group -->
+                        <input type="text" autocomplete="off" class="form-control" id="search" placeholder="Search for products" name="search">
+
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Request Items</a></li>
+                    <li><a href="#">Track Orders</a></li>
+                    <li><a href="{% url 'store:viewcart' %}">Cart ({{ cartcount }})</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{dbuser.name}}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">My Orders</a></li>
+                            <li><a href="#">My Transactions</a></li>
+                            <li><a href="#">My Lists</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">My Requests</a></li>
+                            <li><a href="#">Recommendations</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'store:myprofile' %}">My Account</a></li>
+                            <li><a href="{% url 'store:logout' %}">Sign Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div>
+        <ul id="ajaxsearch"></ul>
+    </div>
+
+    {% endif %}
+
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'store/js/ajax.js' %}"></script>
+
+</body>
+</html>

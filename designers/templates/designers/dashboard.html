@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - GharBanao</title>
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'designers/css/hello.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'designers:index' %}" ><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+        <div style="position: absolute; right: 7vw;top: 25px;">
+            <a href="{% url 'designers:logout' %}" class="btn my_project" >Logout<span class="sr-only">(current)</span></a></li>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container page" id="page">
+    <center style="background: url({% static 'designers/img/welcome.jpg' %}) no-repeat center; background-size: cover; background-attachment: scroll;">
+        <div class="row">
+            <div class="col-xs-12 head">
+                <h2 >Hello there! We are happy to have you onboard.</h2>
+                <h4 >Following are the mandatory steps to build your GharBanao designer profile.</h4>
+            </div>
+        </div>
+        <div class="row" align="center">
+            <div align="left" class="col-xs-12 steps">
+                <ul>
+                    <li><div class="number" align="center">1</div><div class="content"> <h3>Add profile picture</h3> <h5>A profile without a profile picture won't catch much attention from the visitors. Isn't it?</h5></div></li><hr>
+                    <li><div class="number" align="center">2</div><div class="content"> <h3>Upload designs </h3> <h5>A potential customer would definitely want to see your previous works. Make sure they like them.</h5></div></li><hr>
+                    <li><div class="number" align="center">3</div><div class="content"> <h3>Write about you & your designs </h3> <h5>Because a visitor may like to know you a bit. And tell them the speciality about your designs</h5></div></li><hr>
+                    <li><div class="number" align="center">4</div><div class="content"> <h3>Change password</h3> <h5>Don't feel safe with the default password? Change it so that no one else can have access to your account.</h5></div></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 head">
+                <h5> Don't wish complete all the steps at one go? No problem. Login anytime you want and continue from where you left. Click the proceed button bellow to start.</h5>
+            </div>
+        </div>
+
+
+        <div class="row proceed"><a href="{% url 'designers:next' status %}"><b> Proceed </b></a></div>
+        <br>
+        <br>
+
+    </center>
+</div>
+</body>
+</html>

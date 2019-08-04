@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - GharBanao</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <!--<link rel="stylesheet" href="css/profile.css" >-->
+    <link rel="stylesheet" href="{% static 'designers/css/designerinfo.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'designers:index' %}" ><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div style="position: absolute; right: 7vw;top: 25px;">
+
+
+            <a href="{% url 'designers:logout' %}" class="btn my_project" >Logout<span class="sr-only">(current)</span></a></li>
+
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container page" id="page">
+    <center>
+        <div class="row no-margin container-fluid files" style="">
+            <div class="row" style="background: #123c88; border-radius: 6px 6px 0px 0px"><h3 class="col-xs-12" style="color: white">Upload three of your most appreciated designs</h3></div><br>
+            <form method="post" action="{% url 'designers:next' status %}" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="col-sm-4">
+                    <div class="row no-margin preview">
+                        <img id="blah1" src="{% static 'customers/img/face1.jpg'%}">
+                        <input type="file" id="imgInp1" name="design1">
+                    </div>
+
+                    <br>
+                    <select name="design1type">
+                        <option>
+                            Traditional
+                        </option>
+                        <option>
+                            Modern
+                        </option>
+                        <option>
+                            Minimalistic
+                        </option>
+                        <option>
+                            Contemporary
+                        </option>
+                        <option>
+                            Industrial
+                        </option>
+                        <option>
+                            MidCenturyModern
+                        </option>
+                        <option>
+                            Scandinian
+                        </option>
+                        <option>
+                            Bohemian
+                        </option>
+                        <option>
+                            Retro
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="col-sm-4">
+
+
+                    <div class="row no-margin preview">
+                        <img id="blah2" src="{% static 'customers/img/face1.jpg'%}">
+                        <input type="file"  id="imgInp2" name="design2">
+
+                    </div>
+                    <br>
+                    <select name="design2type">
+                        <option>
+                            Traditional
+                        </option>
+                        <option>
+                            Modern
+                        </option>
+                        <option>
+                            Minimalistic
+                        </option>
+                        <option>
+                            Contemporary
+                        </option>
+                        <option>
+                            Industrial
+                        </option>
+                        <option>
+                            MidCenturyModern
+                        </option>
+                        <option>
+                            Scandinian
+                        </option>
+                        <option>
+                            Bohemian
+                        </option>
+                        <option>
+                            Retro
+                        </option>
+                    </select>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="row no-margin preview">
+                        <img id="blah3" src="{% static 'customers/img/face1.jpg'%}">
+                        <input type="file" id="imgInp3" name="design3">
+
+                    </div>
+                    <br>
+                    <select name="design3type">
+                        <option>
+                            Traditional
+                        </option>
+                        <option>
+                            Modern
+                        </option>
+                        <option>
+                            Minimalistic
+                        </option>
+                        <option>
+                            Contemporary
+                        </option>
+                        <option>
+                            Industrial
+                        </option>
+                        <option>
+                            MidCenturyModern
+                        </option>
+                        <option>
+                            Scandinian
+                        </option>
+                        <option>
+                            Bohemian
+                        </option>
+                        <option>
+                            Retro
+                        </option>
+                    </select>
+                </div>
+
+
+                <button type="submit">Next</button>
+            </form>
+
+
+        </div>
+    </center>
+</div>
+<script>
+    function readURL1(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah1').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp1").change(function(){
+    readURL1(this);
+});
+</script>
+<script>
+    function readURL2(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah2').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp2").change(function(){
+    readURL2(this);
+});
+</script>
+<script>
+    function readURL3(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah3').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp3").change(function(){
+    readURL3(this);
+});
+</script>
+
+</body>
+</html>

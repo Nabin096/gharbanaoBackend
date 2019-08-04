@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Registration</title>
+</head>
+<body>
+    <form method="post" action="{% url 'seller:register' %}">
+        {%  csrf_token %}
+        Brand Name: <input type="text" name="name">
+        <br>
+        Emailid: <input type="email" name="emailid">
+        <br>
+        Contact: <input type="text" name="contact">
+        <br>
+        Address: <textarea name="address"></textarea>
+        <br>
+        Password: <input type="password" name="password">
+        <br>
+        Confirm Password: <input type="password" name="confirmpassword">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

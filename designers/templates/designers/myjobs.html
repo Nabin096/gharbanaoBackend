@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Projects - GharBanao</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+    <link rel="stylesheet" href="{% static 'designers/css/myjobs.css' %}">
+    <script src="{% static 'customers/js/jquery.min.js' %}"></script>
+    <script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <center>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </center>
+            </button>
+
+            <a class="navbar-brand" href="{% url 'designers:index' %}" ><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a type="button" href="{% url 'designers:logout' %}" class="btn my_project">Logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid page" id="page">
+    <div class="row no-margin main">
+        <h2><b>Your Jobs</b></h2>
+        <hr>
+        {% for j in jobs %}
+        <div class="block">
+            <form  method="post" action="{% url 'designers:editjob' %}" >
+                {% csrf_token %}
+                <h3 style="color: #123c88">{{j.name}}</h3>
+                <h4>{{j.email}}</h4>
+                <h4>{{j.contact}}</h4>
+                <button class="view-btn" type="submit" value="{{j.id}}" name="jobid">View</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

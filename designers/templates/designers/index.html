@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en">
+
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Designer - GharBanao</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}" >
+	<link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}" >
+	<link rel="stylesheet" href="{% static 'customers/css/template.css' %}" >
+	<link rel="stylesheet" href="{% static 'designers/css/designerhome.css' %}">
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+				<center>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</center>
+			</button>
+
+			<a class="navbar-brand" href="{% url 'designers:index' %}" ><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar">
+
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<li><a href="{% url 'designers:ourDes' %}">Our Designers<span class="sr-only">(current)</span></a></li>
+				<li><a href="#">About Us<span class="sr-only">(current)</span></a></li>
+				<li><a href="{% url 'designers:login' %}"  class="btn my_project">Login</a>
+				</li>
+				<br>
+
+
+
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container-fluid page" id="page">
+
+    <div class="row no-margin top_pic" align="center">
+        <div class="cover">
+            <div class="heading"><h1><i>"Some people look for a beautiful place, others make a place beautiful."</i></h1></div>
+            <small> - HAZRAT INAYAT KHAN</small>
+            <br>
+            <br>
+            <a href="{% url 'designers:register' %}"   class="sign-up">
+                Sign Up
+            </a>
+        </div>
+
+    </div>
+
+<div class="row no-margin bgwhite">
+	<div class="col-xs-4">
+		<img class="img-responsive" src="{% static 'designers/img/join.png' %}">
+	</div>
+	<div class="col-xs-8 text">
+		<h1>Be a part of <span class="GB">GharBanao</span>.</h1>
+		<p>Ghar banao aims to revolutionize the Indian interior design industry through a medley of  cutting edge innovation and exemplary interior design language. And we firmly believe that a great design has the potential to transform the ordinary into brilliance..</p>
+		<p>And so we are on a constant lookout for dynamic and talented professionals who can align themselves to our ideals and be a part of Team Ghar Banao.</p>
+	</div>
+</div>
+
+<div class="row no-margin perks">
+	<div class="col-md-12">
+		<div class="row no-margin" align="center">
+			<h1>PERKS OF WORKING WITH US</h1>
+		</div>
+
+
+		<div class="col-md-3 col-sm-6 col-xs-12 perks-point">
+			<div align="center">
+				<img src="{% static 'designers/img/1.png' %}" class="img-responsive">
+				<div class="perks-text"><p>Expand your business&#39;s reach throughout India.</p></div>
+
+			</div>
+		</div>
+
+		<div class="col-md-3 col-sm-6 col-xs-12 perks-point">
+			<div align="center">
+				<img src="{% static 'designers/img/2.png' %}" class="img-responsive">
+				<div class="perks-text"><p> Work anytime you want, from anywhere you wish.</p></div>
+
+
+			</div>
+		</div>
+
+		<div class="col-md-3 col-sm-6 col-xs-12 perks-point">
+			<div align="center">
+				<img src="{% static 'designers/img/3.png' %}" class="img-responsive">
+				<div class="perks-text"><p> Build your business with your own name and branding.</p></div>
+
+
+			</div>
+		</div>
+
+		<div class="col-md-3 col-sm-6 col-xs-12 perks-point">
+			<div align="center">
+				<img src="{% static 'designers/img/4.png' %}" class="img-responsive">
+				<div class="perks-text"><p>Strengthen your portfolio by working on interesting projects.</p></div>
+
+			</div>
+		</div>
+
+		<div class="col-md-3 col-sm-6 col-xs-12 perks-point">
+			<div align="center">
+				<img src="{% static 'designers/img/5.png' %}" class="img-responsive">
+				<div class="perks-text"><p>Local customer and marketing support.</p></div>
+
+
+			</div>
+		</div>
+
+		<div class="col-md-3 col-sm-6 col-xs-12 perks-point">
+			<div align="center">
+				<img src="{% static 'designers/img/6.png' %}" class="img-responsive">
+				<div class="perks-text"><p> Payment fulfilled by Ghar Banao at every step.</p></div>
+
+
+			</div>
+		</div>
+
+		<div class="col-md-3 col-sm-6 col-xs-12 perks-point">
+			<div align="center">
+				<img src="{% static 'designers/img/7.png' %}" class="img-responsive">
+				<div class="perks-text"><p>Customer Feedback and ratings on every project.</p></div>
+
+
+			</div>
+		</div>
+
+		<div class="col-md-3 col-sm-6 col-xs-12 perks-point">
+			<div align="center">
+				<img src="{% static 'designers/img/8.png' %}" class="img-responsive">
+				<div class="perks-text"><p>Showcase your work for free on your Profile Page.</p></div>
+
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+</div>
+
+
+<div class="row no-margin">
+	<hr>
+	<div class="col-xs-12 how">
+		<div class="row no-margin" align="center">
+
+			<h1 class=""><b>HOW TO JOIN</b></h1>
+			<h4>
+				Join the journey and make yourself known
+			</h4>
+			<br>
+			<br>
+			<br>
+
+			<div class="col-sm-4 step"  >
+				<div class="row">
+					<div class="col-sm-3 col-xs-4 no-padding ">
+						<img class="img-responsive" src="{% static 'designers/img/apply.png' %}">
+					</div>
+					<div class="col-sm-7 col-xs-8 no-padding step-text" align="left">
+						<h3><b>APPLY HERE</b></h3>
+						<p>Designers from acorss India willing to be a part of Ghar Banao have to fill a short online form</p>
+
+					</div>
+
+					<div class="col-sm-2 no-padding gap">
+						<img class="img-responsive" src="{% static 'designers/img/next.png' %}">
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+
+
+			<div class="col-sm-4 step" >
+				<div class="row">
+					<div class="col-sm-3 col-xs-4 no-padding ">
+						<img class="img-responsive" src="{% static 'designers/img/verify.png' %}">
+					</div>
+					<div class="col-sm-7 col-xs-8 no-padding step-text"  align="left">
+						<h3><b>GET VERIFIED</b></h3>
+						<p>Since we are conscious about quality, designers portfolio and other documents will be verified before proceeding. </p>
+
+					</div>
+
+					<div class="col-sm-2 no-padding gap">
+						<img class="img-responsive" src="{% static 'designers/img/next.png' %}">
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+
+			<div class="col-sm-4 step" >
+				<div class="row">
+					<div class="col-sm-3 col-xs-4 no-padding ">
+						<img class="img-responsive" src="{% static 'designers/img/start_designing.png' %}">
+					</div>
+					<div class="col-sm-7 col-xs-8 no-padding step-text" align="left" >
+						<h3><b>START WORKING</b></h3>
+						<p>Build your own profile, upload portfolio and start working on the orders from our clients. </p>
+						<br>
+					</div>
+				</div>
+
+				<div class="col-sm-2 no-padding gap">
+				</div>
+
+
+			</div>
+
+
+
+		</div>
+	</div>
+</div>
+
+
+<hr>
+
+<div class="container-fluid ready" align="center">
+	<div class="col-md-12">
+
+		<h1>READY TO GO?</h1><br>
+
+
+		<a href="{% url 'designers:register' %}"  id="apply_now" class="btn">
+			<b>APPLY NOW</b>
+		</a>
+
+
+	</div>
+</div>
+
+
+<!-- Page Ends-->
+
+
+<!--footer-->
+<!--footer-->
+<div class="container footer">
+<div class="row"><!-- row -->
+
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 tyc"><!-- widgets column center -->
+                  <img class="img-responsive" src="{% static 'customers/img/logo_bw.png' %}">
+          </div>
+
+          <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                                <h4 class="title-widget">COMPANY</h4>
+                                <ul>
+                                  <li><a href="#">About Us</a></li>
+                                  <li><a href="#">Contact Us</a></li>
+                                  <li><a href="#">Designers</a></li>
+                                  <li><a href="#">Feedback</a></li>
+                                  <li><a href="#">Support</a></li>
+                                </ul>
+
+
+                </div><!-- widgets column left end -->
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                                <h4 class="title-widget">LEGAL</h4>
+                                <ul>
+                                  <li><a  href="#">Terms and Conditions</a></li>
+                                  <li><a  href="#">Privacy Policy</a></li>
+                                  <li><a  href="#">Payment Securities</a></li>
+                                  <li><a  href="#">Partners</a></li>
+                                </ul>
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-sm-4 col-xs-12 mycol list"><!-- widgets column left -->
+                      <h4 class="title-widget">CONNECT</h4>
+                        <div class="social-icons">
+                              <a href="https://www.facebook.com/GharBanao/"><img src="{% static 'customers/img/fb.png' %}"></a>
+                              <a href="https://twitter.com/GharBanao"><img src="{% static 'customers/img/tweet.png' %}"></a>
+                              <a href="https://www.linkedin.com/company-beta/10652164/"><img src="{% static 'customers/img/in.png' %}"></a><br>
+                        </div>
+                </div>
+          </div>
+</div>
+  <center><p class="copyright"> Copyright © 2017 Tune Your Construction (P) Ltd.</p></center>
+</div>
+</div>
+
+
+
+<script src="{% static 'customers/js/jquery.min.js' %}"></script>
+<script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

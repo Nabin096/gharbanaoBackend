@@ -1,0 +1,43 @@
+*{
+	padding:0px;
+	margin:0px;
+	max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    box-sizing: border-box;
+
+}
+body{
+	background-image:url("../img/bgwood.jpg");
+	background-repeat: repeat;
+}
+
+
+.about {	
+	overflow: hidden;
+	height:35px;
+    width:480px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+		
+	}
+a:hover{
+	color:white;
+	box-shadow:0px 1px 4px rgba(0,0,0,0.4);
+	text-decoration:none;
+}
+
+ @font-face {
+			font-family:Nill;
+		    src:url(../Fonts/Nilland.woff);
+ }
+
+ @font-face{
+			font-family:DUBIEL;
+			src:url(../Fonts/DUBIEL.woff);
+}
+ @font-face {
+			font-family:UbuntuL;
+		    src:url(../Fonts/Ubuntu-L.woff);
+ }

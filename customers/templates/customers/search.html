@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/png" href="{% static 'customers/img/favicon.png' %}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Designer- GharBanao</title>
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'customers/css/searchpage.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <center>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </center>
+            </button>
+
+            <a class="navbar-brand" href="{% url 'customers:index' %}"><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'customers:howitworks' %}">How it works<span class="sr-only">(current)</span></a></li>
+                <!--<li><a href="{% url 'customers:blogs' %}">Helpdesk<span class="sr-only">(current)</span></a></li>-->
+                <li><a href="{% url 'customers:ourdesign' %}">Designs<span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'customers:blogs' %}">Blog<span class="sr-only">(current)</span></a></li>
+                <li><button type="button" class="btn my_project" data-toggle="collapse" data-target="#login" aria-controls="nav-collapse" >My Project</button></li>
+                <br>
+                <div id="login" class="collapse">
+                    <div class="login_window">
+                        <button type="button" class="close" data-toggle="collapse" data-target="#login">&times;</button>
+                        <form class="login-form" method="post" action="{% url 'customers:login' %}">
+                            {% csrf_token %}
+                            <br>
+                            <h2>Login</h2>
+                            <input type="text" placeholder="Enter ProjectID" name="email" required>
+                            <input type="password" placeholder="Enter password" name="password" required>
+                            <button type="submit">Login</button>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container page" id="page">
+    <div class="row no-margin container-fluid fields">
+        <div class="col-xs-12 container-fluid">
+            <h2><img src="{% static 'customers/img/search.png' %} ">Search</h2>
+        </div>
+
+        <form method ="GET" action="{% url 'customers:search' %}">{% csrf_token %}
+            <div class="col-xs-12 container-fluid">
+                <div class="row no-margin searchfield form-group">
+                    <div class="col-sm-4 no-padding">
+                        <script src="{% static 'customers/js/ajax.js' %}"></script>
+                        {% render_field filter.form.name   id="name" name="name" autocomplete="off"  class="form-control container-fluid no-padding" placeholder="Designer Name" %}
+                        <div class="autofill">
+                            <ul>
+                                <p class="no-margin" id="test"></p>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-4 no-padding">
+                        {% render_field filter.form.firmname class="form-control container-fluid no-padding" placeholder="Firmname" %}
+                    </div>
+
+                    <div class="col-sm-4 no-padding">
+                        {% render_field filter.form.address class="form-control container-fluid no-padding" placeholder="City" %}
+                    </div>
+                </div>
+
+                <a data-toggle="collapse" href="#filters" aria-expanded="false" aria-controls="#filters">
+                    Filters
+                </a>
+
+
+
+                <div class="collapse" id="filters">
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label"> {{ filter.form.Traditional.label_tag }} </div>
+                        <div class="col-sm-6 no-padding style-choose"> {% render_field filter.form.Traditional  title="Choose" %} </div>
+                    </div>
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label">{{ filter.form.Modern.label_tag }}</div>
+                        <div class="col-sm-6 no-padding style-choose">{% render_field filter.form.Modern  title="Choose"  %}</div>
+                    </div>
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label">{{ filter.form.Minimalistic.label_tag }}</div>
+                        <div class="col-sm-6 no-padding style-choose">{% render_field filter.form.Minimalistic title="Choose"  %}</div>
+                    </div>
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label">{{ filter.form.Contemporary.label_tag }}</div>
+                        <div class="col-sm-6 no-padding style-choose">{% render_field filter.form.Contemporary title="Choose"  %}</div>
+                    </div>
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label">{{ filter.form.Industrial.label_tag }}</div>
+                        <div class="col-sm-6 no-padding style-choose">{% render_field filter.form.Industrial title="Choose"  %}</div>
+                    </div>
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label">{{ filter.form.MidCenturyModern.label_tag }}</div>
+                        <div class="col-sm-6 no-padding style-choose">{% render_field filter.form.MidCenturyModern title="Choose"  %}</div>
+                    </div>
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label">{{ filter.form.Scandinian.label_tag }}</div>
+                        <div class="col-sm-6 no-padding style-choose">{% render_field filter.form.Scandinian  title="Choose"  %}</div>
+                    </div>
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label">{{ filter.form.Bohemian.label_tag }}</div>
+                        <div class="col-sm-6 no-padding style-choose">{% render_field filter.form.Bohemian title="Choose"  %}</div>
+                    </div>
+
+                    <div class="col-xs-4 filter">
+                        <div class="col-sm-6 no-padding style-label">{{ filter.form.Retro.label_tag }}</div>
+                        <div class="col-sm-6 no-padding style-choose">{% render_field filter.form.Retro title="Choose"  %}</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12" style="margin: 5px">
+                <button type="submit" class="search-btn">Search Designer</button>
+            </div>
+        </form>
+    </div>
+
+
+    <br>
+
+
+
+    <div class="row no-margin container-fluid results">
+        <div class="col-xs-12">
+            <h4>Search Results</h4><hr>
+            {% for d in filter.qs %}
+            <div class="row no-margin">
+
+
+                <div class="col-sm-4 col-xs-12 no-padding portfolio" style="background: url({{d.design1.url}}) no-repeat center">
+
+                        <div class="portfolio-cover" >
+                            <h4 class="no-margin">Visit profile to see more</h4>
+                        </div>
+
+                </div>
+
+                <div class="col-sm-8 col-xs-12 container-fluid designer">
+                    <div class="row no-margin">
+                        <div class="col-sm-2 col-xs-3 no-padding">
+                                {% if d.profilepic %}
+                                <img src="{{d.profilepic.url}}" alt="bill" class="img-thumbnail img-rounded img-responsive">
+                                {% else %}
+                                <img src="{% static 'customers/img/face2.jpg' %}" class="img-thumbnail img-rounded img-responsive" >
+                                {% endif %}
+                        </div>
+                        <div class="col-sm-10 col-xs-7 no-padding">
+                        </div>
+                        <div class="col-xs-12 no-padding details">
+
+                                <h3>{{d.name}} </h3>
+
+
+                            <h5>{{d.firmname}}</h5>
+                            <h5>{{d.points}}</h5>
+                        </div>
+                        <div class="col-xs-12 buttons" align="right">
+                            <form  method="post" action="{% url 'customers:designer_selected' %}">
+                                {% csrf_token %}
+                                <button type="submit" value="{{d.designerID}}" name="designerselected" class="des-btn" style="border-radius: 6px 0px 0px 6px">Hire now</button>
+                            </form>
+
+
+
+                            <form style="float: right"method="post" action="{% url 'customers:designer' %}" >{% csrf_token %}
+                                <button type="select" name="designer" value={{d.designerID}} class="des-btn" style="border-radius: 0px 6px 6px 2px;">Visit Profile</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<br>
+
+
+<script src="{% static 'customers/js/jquery.min.js' %}"></script>
+<script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+<script>
+$(document).mouseup(function(e)
+{
+    var container = $("#login");
+
+
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        container.removeClass("in");
+    }
+});
+</script>
+
+<script>
+$(document).mouseup(function(e)
+{
+    var container1 = $(".navbar-collapse");
+    var container2 = $(".navbar-toggle");
+
+    if (!container2.is(e.target) && container2.has(e.target).length === 0)
+        {    if (!container1.is(e.target) && container1.has(e.target).length === 0)
+            {
+                container1.removeClass("in");
+            }
+        }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
+<script src="{% static 'customers/js/ajax.js' %}" ></script>
+
+</body>
+</html>

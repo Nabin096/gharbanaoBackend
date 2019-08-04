@@ -1,0 +1,319 @@
+body{
+    background: #fff;
+}
+@font-face {
+    font-family: 'rbtc';
+    src: url('../fonts/rbtc.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'osr';
+    src: url('../fonts/osr.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main{
+    box-shadow: 4px 4px 10px 1px rgba(0, 0, 0, 0.3);
+    background: #f8f8f8;
+    padding: 4% 8%;
+    padding-top: 20px;
+    font-family: 'rbtc';
+    margin: 0px 10px;
+    max-width: 1366px;
+}
+
+.main h1{
+    border-left: 5px solid #123c88;
+    color: #363636;
+    padding-left: 20px;
+    text-align: left;
+    font-weight: bolder;
+    margin-top: 6px;
+    font-family: 'osr';
+}
+
+.chart{
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    border-radius: 6px;
+    height: 520px;
+    background: url("../img/hiw.jpg") no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;	
+    background-size: cover;
+ 
+ }
+
+.timeline{
+    max-width: 860px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    margin-bottom: 24px;
+}
+
+.points{
+    max-width: 588px;
+    height: 60px;
+    margin: 2px 0px;
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.thumb{    
+    float: left;
+}
+
+
+.thumb > img{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  border-width: 4px;
+  border-color: #123c88;
+  border-style: solid;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+.thumb img{
+  width: 60px;
+  height: 60px;
+  -webkit-transition: height 600ms cubic-bezier(0.645, 0.045, 0.355, 1), width 600ms cubic-bezier(0.645, 0.045, 0.355, 1); 
+  -moz-transition:  height  600ms cubic-bezier(0.645, 0.045, 0.355, 1), width 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:       height  600ms cubic-bezier(0.645, 0.045, 0.355, 1), width 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.details{
+    position: relative;
+    top: 50%;
+
+    transform: translate(0%, -50%);
+}
+
+.details h2{
+    color: #123c88;
+    text-shadow: 1px 1px 2px rgba( 0, 0, 0, 0.2);
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.details > div{
+    max-height: 33px;
+    overflow: hidden;
+    -webkit-transition: max-height 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    max-height 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         max-height 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.details > div > p{
+    margin-left: 10px;
+    border-radius: 0px 16px 16px 16px;
+    font-size: 16px;
+    font-style: italic;
+    max-width: 480px; 
+    padding: 6px 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0);
+    -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+.gap {
+    background: url("../img/gap_back.png") no-repeat center;
+    overflow: hidden;
+    display: inline-block;
+    color: #123c88;
+    width: 60px;
+    height: 60px;
+    float: left; 
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+.points:hover {
+    padding: 4px 4px;
+    height: 128px;
+    overflow: visible;
+    border-radius: 24px;
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.points:hover .details h2{
+	text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.points:hover .details > div{
+    max-height: 150px;
+    overflow: hidden;
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+.points:hover .details > div > p{
+    color: rgba(0, 0, 0, 0.7);
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1) 100ms;
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1) 100ms;
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1) 100ms;
+}
+
+
+.points:hover .thumb img{
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, 0%);
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+@media screen and (max-width: 1023px) {
+    
+    .main {
+        padding: 4%;
+    }
+    
+}
+
+
+@media screen and (max-width: 959px) {
+    .main {
+        margin: 0px;
+    }
+
+
+}
+
+
+@media screen and (max-width: 767px) {
+    .chart{
+
+    background-position-x: right;
+    background-position-y: bottom;	
+
+ 
+ }
+    
+    .gap{
+        width: 0px;
+        overflow: hidden; 
+    }
+
+    .points{
+        margin-left: 0px !important;
+    }
+
+    .thumb{
+        width: 120px;
+    }
+
+    
+
+    
+}
+
+@media screen and (max-width: 639px) {
+    .timeline{
+    position: relative;
+    top: 0px;
+    left: 0%;
+    transform: translate(-0%, -0%);
+    }
+
+    .thumb{
+        width: 60px;
+    }
+
+    .points:hover .thumb img{
+    width: 60px;
+    height: 60px;
+    transform: translate(-50%, 0%);
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+}
+
+@media screen and (max-width: 479px) {
+    .main{
+        background: #f8f8f8;   
+    }
+
+    .chart{
+        height: auto;
+        background: #eee;
+		padding-bottom: 10px;
+    }
+    
+    .points{
+    width: 100%;
+    height: initial;
+    margin: 0px 0px;
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .details{
+    top: 0%;
+    transform: translate(0%, 0%);
+    }
+
+    .details > div{
+    max-height: initial;
+    overflow: hidden;
+    -webkit-transition: height 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    height 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         height 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .details h2{
+    color: #123c88;
+    font-weight: bold;
+    margin: 0px 10px;;
+    }
+
+    .details > div > p{
+    color: rgba(0, 0, 0, 0.7);
+	background: rgba(255, 255, 255, 0.8);
+
+    }
+	
+	.points:hover {
+	height: initial;
+	padding: 0px;
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition:    all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+	
+
+
+
+	.points:hover .details > div{
+	max-height: initial;
+	-webkit-transition: height 600ms cubic-bezier(0.645, 0.045, 0.355, 1), width 600ms cubic-bezier(0.645, 0.045, 0.355, 1); 
+	-moz-transition:  height  600ms cubic-bezier(0.645, 0.045, 0.355, 1), width 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+	transition:       height  600ms cubic-bezier(0.645, 0.045, 0.355, 1), width 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+

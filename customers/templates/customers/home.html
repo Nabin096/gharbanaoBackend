@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="{% static 'customers/img/favicon.png' %}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GharBanao - Interior design hub</title>
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'customers/css/gharbanaohome.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+</head>
+
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <center>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </center>
+            </button>
+
+            <a class="navbar-brand" href="{% url 'customers:index' %}"><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'customers:howitworks' %}">How it works<span class="sr-only">(current)</span></a></li>
+                <!--<li><a href="{% url 'customers:blogs' %}">Helpdesk<span class="sr-only">(current)</span></a></li>-->
+                <li><a href="{% url 'customers:ourdesign' %}">Designs<span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'customers:blogs' %}">Blog<span class="sr-only">(current)</span></a></li>
+                <li><button type="button" class="btn my_project" data-toggle="collapse" data-target="#login" aria-controls="nav-collapse" >My Project</button></li>
+
+                <div id="login" class="collapse">
+                    <div class="login_window">
+                        <button type="button" class="close" data-toggle="collapse" data-target="#login">&times;</button>
+                        <form class="login-form" method="post" action="{% url 'customers:login' %}">
+                            {% csrf_token %}
+                            <br>
+                            <h2>Login</h2>
+                            <input type="text" placeholder="Enter ProjectID" name="email" required>
+                            <input type="password" placeholder="Enter password" name="password" required>
+
+                            <button type="submit">Login</button>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- End of nav -->
+
+<div class="container page" id="page">
+    <!-- Page Starts-->
+    <div class="container-fluid">
+        <div id="mycarousel" class="carousel slide top-carousel" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#mycarousel" data-slide-to="1"></li>
+                <li data-target="#mycarousel" data-slide-to="2"></li>
+                <li data-target="#mycarousel" data-slide-to="3"></li>
+                <li data-target="#mycarousel" data-slide-to="4"></li>
+
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                {% if topper1 %}
+                <div class="item active" style="background: url({{topper1.design1.url}})  no-repeat center; background-size: cover">
+                    <div class="cover">
+                        <div class="carousel-caption">
+                            <div class="row">
+
+                                <div class="col-xs-6 profile-img" style="background: url({{topper1.profilepic.url}}) no-repeat center; background-size: cover">
+
+                                </div>
+
+                                <div class="disappear">
+                                    <div class="name">{{topper1.name}}</div>
+                                    <div class="firm">{{topper1.firmname}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="item " style="background: url('static/customer/img/face7.jpg') no-repeat center">
+
+                    <div class="carousel-caption">
+                        <div class="row ">
+                            <div class="col-md-6 col-sm-6 col-xs-6 img-square-padding">
+                                <img src="static/customer/img/face7.jpg" alt="bill" class="img-circle profile-image" >
+                            </div>
+                            <div class="disappear">
+                                <span class="name">Nikhilesh Das</span>
+                                <span class="firm">Das interiors, Ujanbazar Ghy</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+
+                {% if topper2 %}
+
+                <div class="item " style="background: url({{topper2.design1.url}})  no-repeat center; background-size: cover">
+
+                    <div class="cover">
+                        <div class="carousel-caption">
+                            <div class="row ">
+                                <div class="col-xs-6 profile-img" style="background: url({{topper2.profilepic.url}}) no-repeat center; background-size: cover">
+
+                                </div>
+                                <div class="disappear">
+                                    <div class="name">{{topper2.name}}</div>
+
+                                    <div class="firm">{{topper2.firmname}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                {% else %}
+                <div class="item " style="background: url('static/customer/img/face7.jpg') no-repeat center; background-size: cover">
+
+                    <div class="carousel-caption">
+                        <div class="row ">
+                            <div class="col-md-6 col-sm-6 col-xs-6 img-square-padding">
+                                <img src="static/customer/img/face7.jpg" alt="bill" class="img-circle profile-image" >
+                            </div>
+                            <div class="disappear">
+                                <span class="name">Nikhilesh Das</span>
+                                <span class="firm">Das interiors, Ujanbazar Ghy</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if topper3 %}
+                <div class="item" style="background: url({{topper3.design1.url}})  no-repeat center; background-size: cover">
+                    <div class="cover">
+                        <div class="carousel-caption">
+                            <div class="row ">
+                                <div class="col-xs-6 profile-img" style="background: url({{topper3.profilepic.url}}) no-repeat center; background-size: cover">
+
+                                </div>
+                                <div class="disappear">
+                                    <div class="name">{{topper3.name}}</div>
+
+                                    <div class="firm">{{topper3.firmname}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                {% else %}
+                <div class="item " style="background: url('static/customer/img/face7.jpg') no-repeat center; background-size: cover">
+
+                    <div class="carousel-caption">
+                        <div class="row ">
+                            <div class="col-md-6 col-sm-6 col-xs-6 img-square-padding">
+                                <img src="static/customer/img/face7.jpg" alt="bill" class="img-circle profile-image" >
+                            </div>
+                            <div class="disappear">
+                                <span class="name">Nikhilesh Das</span>
+                                <span class="firm">Das interiors, Ujanbazar Ghy</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+
+
+                {% if topper4 %}
+
+                <div class="item " style="background: url({{topper4.design1.url}})  no-repeat center">
+                    <div class="cover">
+                        <div class="carousel-caption">
+                            <div class="row ">
+                                <div class="col-xs-6 profile-img" style="background: url({{topper4.profilepic.url}}) no-repeat center; background-size: cover">
+
+                                </div>
+                                <div class="disappear">
+                                    <div class="name">{{topper4.name}}</div>
+
+                                    <div class="firm">{{topper4.firmname}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                {% else %}
+                <div class="item " style="background: url('static/customer/img/face7.jpg') no-repeat center">
+
+                    <div class="carousel-caption">
+                        <div class="row ">
+                            <div class="col-md-6 col-sm-6 col-xs-6 img-square-padding">
+                                <img src="static/customer/img/face7.jpg" alt="bill" class="img-circle profile-image" >
+                            </div>
+                            <div class="disappear">
+                                <span class="name">Nikhilesh Das</span>
+                                <span class="firm">Das interiors, Ujanbazar Ghy</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+
+                {% if topper5 %}
+                <div class="item " style="background: url({{topper5.design1.url}}) no-repeat center">
+
+                    <div class="cover">
+
+                        <div class="carousel-caption">
+                            <div class="row ">
+                                <div class="col-xs-6 profile-img" style="background: url({{topper5.profilepic.url}}) no-repeat center; background-size: cover">
+
+                                </div>
+                                <div class="disappear">
+                                    <div class="name">{{topper5.name}}</div>
+
+                                    <div class="firm">{{topper5.firmname}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cover">
+                        </div>
+                        {% else %}
+                        <div class="item " style="background: url({{topper5}}) no-repeat center">
+
+                            <div class="carousel-caption">
+                                <div class="row ">
+                                    <div class="col-md-6 col-sm-6 col-xs-6 img-square-padding">
+                                        <img src="static/customer/img/face7.jpg" alt="bill" class="img-circle" >
+                                    </div>
+                                    <div class="disappear">
+                                        <span class="name">Nikhilesh Das</span><br>
+                                        <span class="firm">Das interiors, Ujanbazar Ghy</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+
+                </div>
+
+                <div id="home" align="center" class="">
+                    <h1><b>YOUR SPACE OUR INNOVATION</b></h1>
+                    <p>“A room should never allow the eye to settle at one place.<br> It should smile at you and create fantasy”</p>
+                    <button type="button" id="get_started_button"  data-toggle="modal" data-target="#myModal" aria-haspopup="true" aria-expanded="false">
+                        Get Started
+                    </button>
+                </div>
+
+
+
+
+                <!-- Modal -->
+                <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Job Details</h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <form method="post" action="{% url 'customers:job' %}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Room type:</label>
+
+                                                <select class="form-control" name="roomtype">
+                                                    <option>Residential</option>
+                                                    <option>Commercial</option>
+                                                    <option>Hospitality</option>
+                                                    <option>Retail</option>
+                                                    <option>Others</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Area</label>
+                                                <input type="text" name="area" class="form-control" placeholder="e.g. 500 sqft">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Estimated budget:</label>
+                                                <input type="text" name="estimatedbudget"  class="form-control" placeholder="Rs.">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Property type:</label>
+                                                <select class="form-control" name="lifespan">
+                                                    <option>New property</option>
+                                                    <option>Existing property</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <label>Execution</label>
+                                                <select class="form-control" name="execution">
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Requirements:</label>
+                                            </div>
+                                            <input type="checkbox" name="false_ceiling" value="on">False Ceiling
+                                            <br>
+                                            <input type="checkbox" name="flooring" value="on">Flooring
+                                            <br>
+                                            <input type="checkbox" name="wall_paper" value="on">Wallpaper
+                                            <br>
+                                            <input type="checkbox" name="wall_painting" value="on">Wall Painting
+                                            <br>
+                                            <input type="checkbox" name="luxury_goods" value="on">Luxury Goods
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn"><b>Continue</b></button>
+
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row bgwhite">
+            <div class="col-md-12">
+                <div id="about" align="center" class="" >
+                    <p>
+                        <span class="gray">"</span>You deserve to live in a home as special and unique as you are.
+                        And we at <span class="gb"><span class="g">Ghar</span>Banao</span> are here to help you realize the home of your dreams. Our network of top designers will transform your space into a piece of art on time and on budget."
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row how">
+            <center>
+                <h1>HOW IT WORKS</h1>
+
+                <div class="row cards">
+
+                    <div class="col-sm-4 col-xs-12 steps">
+                        <div class="stepcard">
+                            <img src="{% static 'customers/img/specify.png' %}">
+                            <h3>YOU <span class="highlight"><b>SPECIFY</b></span></h3>
+                            <p>First of all, tell us how you want your space to look. What story do you want your space to tell? </p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-12 steps">
+                        <div class="stepcard">
+                            <img src="{% static 'customers/img/choose.png' %}">
+                            <h3>YOU <span class="highlight"><b> CHOOSE</b></span></h3>
+                            <p>Then, choose a designer from the list of suggested designers based on your preference.</p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-12 steps">
+                        <div class="stepcard">
+                            <img src="{% static 'customers/img/rest.png' %}">
+                            <h3>WE <span class="highlight"><b> DO THE REST </b></span></h3>
+                            <p>Now, sit back and relax as the verified designers takes it from here, and keeps you updated.</p>
+                            <br>
+                        </div>
+                    </div>
+
+                </div>
+                <a href="{% url 'customers:howitworks' %}">Learn More</a>
+            </center>
+        </div>
+
+        <div class="row dotw container-fluid" data-wow-delay="0.2s">
+            <h1><b>TOP DESIGNERS OF THE WEEK</b></h1>
+            <div class="carousel slide" align="center" data-ride="carousel" id="quote-carousel">
+                <!-- Bottom Carousel Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive" src={{topper1.profilepic.url}} alt="">
+                    </li>
+                    <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src={{topper2.profilepic.url}} alt="">
+                    </li>
+                    <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src={{topper3.profilepic.url}} alt="">
+                    </li>
+                    <li data-target="#quote-carousel" data-slide-to="3"><img class="img-responsive " src={{topper4.profilepic.url}} alt="">
+                    </li>
+                    <li data-target="#quote-carousel" data-slide-to="4"><img class="img-responsive " src={{topper5.profilepic.url}} alt="">
+                    </li>
+
+                </ol>
+
+                <!-- Carousel Slides / Quotes -->
+                <div class="row carousel-inner" align="center">
+
+                    <!-- Quote 1 -->
+                    <div class="col-xs-12 item active" style="background: url({{topper1.design2.url}})  no-repeat center; background-size: cover">
+
+
+                    </div>
+                    <!-- Quote 2 -->
+                    <div  class="col-xs-12 item" style="background: url({{topper2.design2.url}})  no-repeat center; background-size: cover">
+
+                    </div>
+                    <!-- Quote 3 -->
+                    <div  class="col-xs-12 item" style="background: url({{topper3.design2.url}})  no-repeat center; background-size: cover">
+
+                    </div>
+                    <!-- Quote 4 -->
+                    <div  class="col-xs-12 item" style="background: url({{topper4.design2.url}})  no-repeat center; background-size: cover">
+
+                    </div>
+                    <!-- Quote 5 -->
+                    <div  class="col-xs-12 item" style="background: url({{topper5.design2.url}})  no-repeat center; background-size: cover">
+
+                    </div>
+
+                </div>
+
+                <!-- Carousel Buttons Next/Prev -->
+                <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><img class="img-responsive" src="{% static 'customers/img/left.png' %}"></a>
+                <a data-slide="next" href="#quote-carousel" class="right carousel-control"><img class="img-responsive" src="{% static 'customers/img/right.png' %}" ></a>
+            </div>
+        </div>
+
+        <div class="row why">
+            <div>
+                <h1><b>WHY CHOOSE US?</b></h1><br>
+                <center>
+                    <div class="row why_ans container-fluid">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4 responsive">
+                                <img src="{% static 'customers/img/why1.png' %}"><p>Fully customizable design created personally for you. </p>
+
+                            </div>
+                            <div class="col-sm-4 col-xs-4 responsive">
+                                <img src="{% static 'customers/img/why2.png' %}" ><p>Dedicated Project Manager to take care of your every need. </p>
+
+                            </div>
+                            <div class="col-sm-4 col-xs-4 responsive">
+                                <img src="{% static 'customers/img/why3.png' %}"><p>Cost effective implementation on time, everytime. </p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4 responsive">
+                                <img src="{% static 'customers/img/why4.png' %}"><p>Secured and staged payment for your peace of mind. </p>
+
+                            </div>
+                            <div class="col-sm-4 col-xs-4 responsive">
+                                <img src="{% static 'customers/img/why5.png' %}" ><p>Professional Design expert to turn your every dream to reality. </p>
+
+                            </div>
+                            <div class="col-sm-4 col-xs-4 responsive">
+                                <img src="{% static 'customers/img/why6.png' %}"><p>Seamless web and app integration to manage project on the go. </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+        <div class="row"   id="banner">
+            <div class="col-md-6 col-sm-6 col-xs-12 imgboard">
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 ycenter" align="center">
+                <h1>GIVE YOUR PLACE A NEW MAKEOVER</h1>
+                <button type="button"  class="banner-btn" data-toggle="modal" data-target="#myModal" aria-haspopup="true" aria-expanded="false">
+                    Start a Project
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Page Ends-->
+
+
+    <!--footer-->
+    <div class="container footer">
+        <div class="row"><!-- row -->
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 tyc"><!-- widgets column center -->
+                <img class="img-responsive" src="{% static 'customers/img/logo_bw.png' %}">
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Designers</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">LEGAL</h4>
+                    <ul>
+                        <li><a  href="#">Terms and Conditions</a></li>
+                        <li><a  href="#">Privacy Policy</a></li>
+                        <li><a  href="#">Payment Securities</a></li>
+                        <li><a  href="#">Partners</a></li>
+                    </ul>
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-sm-4 col-xs-12 mycol list"><!-- widgets column left -->
+                    <h4 class="title-widget">CONNECT</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/GharBanao/"><img src="{% static 'customers/img/fb.png' %}"></a>
+                        <a href="https://twitter.com/GharBanao"><img src="{% static 'customers/img/tweet.png' %}"></a>
+                        <a href="https://www.linkedin.com/company-beta/10652164/"><img src="{% static 'customers/img/in.png' %}"></a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center><p class="copyright"> Copyright © 2017 Tune Your Construction (P) Ltd.</p></center>
+    </div>
+
+
+
+
+</div>
+<script src="{% static 'customers/js/jquery.min.js' %}"></script>
+<script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+<script>
+$(document).mouseup(function(e)
+{
+    var container = $("#login");
+
+
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        container.removeClass("in");
+    }
+});
+</script>
+
+<script>
+$(document).mouseup(function(e)
+{
+    var container1 = $(".navbar-collapse");
+    var container2 = $(".navbar-toggle");
+
+    if (!container2.is(e.target) && container2.has(e.target).length === 0)
+        {    if (!container1.is(e.target) && container1.has(e.target).length === 0)
+            {
+                container1.removeClass("in");
+            }
+        }
+});
+</script>
+
+</body>
+</html>

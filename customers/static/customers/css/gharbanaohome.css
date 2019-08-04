@@ -1,0 +1,725 @@
+html,body{
+    height: 100%;
+}
+
+.row{
+    margin: 0px;
+}
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.top-carousel .carousel-indicators{
+    top: 380px;
+    bottom: auto;
+}
+
+
+.page{
+    background: url('../img/how_back.jpg') no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'gsl';
+    src: url('../Fonts/gsl.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'nill';
+    src: url('../Fonts/nill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dub';
+    src: url('../Fonts/dub.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.item{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+#mycarousel .item {
+    height: 420px;
+}
+
+
+.cover{
+    width: 100%;
+    height: 100%;
+    background: rgba( 0, 0, 0, 0.5);
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 1px;
+
+}
+
+
+
+
+#get_started_button{
+	color:white;
+    padding: 5px;
+    width: 180px;
+    background-color: transparent;
+    border: 2px white solid;
+    border-radius: 4px;
+
+}
+#get_started_button:hover{
+    background-color: #123c88;
+    border: 2px #123c88 solid;
+}
+
+
+
+
+.carousel-caption{
+    position: absolute;
+    left: 20px !important;
+    bottom: 10px !important;
+	background-color:transparent;
+    color:white;
+	float: left;
+	text-align: left;
+    border-radius: 1px;
+    max-width: 350px;
+    height: 80px;
+    padding: 0px;
+    text-shadow: none;
+}
+
+
+
+.profile-img{
+    position: relative;
+    z-index: 50;
+    bottom: 5px;
+    border: 4px solid white;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
+
+.disappear{
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    padding: 0px;
+}
+
+
+
+
+.disappear .name{
+    font-size: 16px;
+    font-weight: bold;
+    color: #123c88;
+    padding: 0px 5px 0px 44px;
+    background: white;
+}
+
+.disappear .firm{
+    font-size: 13px;
+    color: white;
+    padding: 0px 5px 0px 44px;
+    background: #123c88;
+}
+
+
+
+.carousel-indicators{
+    padding: 0px !important;
+    margin: 0px !important;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.length{
+	width: 350px;
+}
+
+#home{
+    width: 80%;
+    z-index: 500;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%, 0%);
+    color: white;
+    position: absolute;
+
+}
+#home h1{
+	color: white;
+	text-shadow: 1px 0px black;
+	font-size: 45px;
+	margin-bottom: 15px;
+	z-index: 300;
+}
+#home p{
+    width: auto;
+	font-size: 16px;
+	z-index: 300;
+	text-shadow: 1px 0px black;
+    margin-bottom: 2vw;
+}
+
+
+.modal-dialog{
+    top: 70px;
+}
+
+.bgwhite{
+    background: #eee;
+    padding: 10px 0px;
+}
+
+
+
+#about{
+    font-family: 'gsl';
+    margin: 0px;
+	margin-top: 40px;
+    margin-bottom: 60px;
+
+}
+
+#about p{
+  font-weight: bold;  
+  font-size: 22px;
+  color: #666;
+  text-align: center;
+  max-width: 560px;
+}
+
+.gb{
+    font-family: 'nill';
+	color:#123c88;
+    font-weight: 400;
+}
+
+.g{
+    font-weight: 900;
+}
+
+
+
+.how{
+    padding: 3vw 2vw;
+    background: rgba(0, 0, 0, 0.75);
+
+}
+
+.how h1{
+    color: #eee;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.cards{
+    margin-bottom: 30px; 
+    max-width: 960px;
+}
+
+.steps{
+    padding: 10px 2vw;
+}
+
+.stepcard{
+    background: #eee;
+    padding: 1vw;
+    
+}
+
+.how a{
+    text-decoration: none;
+	color: #eee;
+    padding: 0.5vw 3vw;
+    margin-bottom: 40px;
+    border: 1px #eee solid;
+    border-radius: 2px;
+    font-family: 'helvetica';
+}
+
+.how a:hover{
+	color: #333;
+    background-color:#eee;
+}
+
+
+.highlight{
+	color: #4f4f4f;
+    
+}
+
+.dotw{
+    overflow: hidden;
+    background: #f8f8f8;
+    padding: 20px 2vw;
+}
+
+.dotw h1{
+    border-left: 4px solid #363636;
+    padding-left: 20px;
+    font-family: 'dub';
+    margin: 40px auto 10px;
+    max-width: 960px;
+    color: #363636;
+}
+
+
+
+
+.dotw .carousel-inner{
+    height: 420px;
+}
+
+
+#quote-carousel{
+    border: 10px solid white;
+    margin: 10px auto 60px;
+    max-width: 960px;
+    max-height: 480px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+
+}
+
+#quote-carousel .item{
+    height: 420px
+}
+
+#quote-carousel .carousel-control.left {
+    left: 0px;
+}
+#quote-carousel .carousel-control.right {
+    right: 0px;
+}
+
+
+#quote-carousel .carousel-indicators {
+    height: 85px;
+    top: auto;
+    
+}
+
+
+
+
+#quote-carousel .carousel-indicators li {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: 4px solid #eee;
+    border-radius: 50%;
+    opacity: 0.5;
+    overflow: hidden;
+    margin: 20px 0px;
+    -webkit-transition: all 600ms ease-in;
+    -moz-transition:    all 600ms ease-in;
+    transition:         all 600ms ease-in;
+
+}
+
+
+
+
+
+#quote-carousel .carousel-indicators .active {
+    background: #333333;
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border-color: #eee;    
+    opacity: 1;
+    -webkit-transition: all 600ms ease-in;
+    -moz-transition:    all 600ms ease-in;
+    transition:         all 600ms ease-in;
+
+}
+
+#mycarousel {
+    position: relative;
+
+    
+}
+
+.carousel-control{
+    height: 420px;
+    }
+
+.carousel-control > img{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    opacity: 0;
+}
+
+.carousel-control:hover img{
+    opacity: 0.75;
+    -webkit-transition: opacity 300ms ease-in;
+    -moz-transition:    opacity 300ms ease-in;
+    transition:         opacity 300ms ease-in;
+}
+
+
+
+
+.why{
+    background: url('../img/2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.why > div{
+    background: rgba(0, 0, 0, 0.75);
+    height: 100%;
+    width: 100%;
+    padding: 40px 20px 80px;
+}
+
+.why h1{
+	color:white;
+    max-width: 960px;
+    margin: 10px auto 20px;
+}
+
+
+.why_ans{
+    background: rgba(248, 248, 248, 1);
+    max-width: 960px;
+    margin: 10px auto 40px;
+    border-radius: 6px; 
+}
+
+.why_ans > div{
+    float: none;
+    margin: 0px auto;
+    padding: 3vw;
+    border-radius: 6px;
+
+}
+
+.why_ans p{
+	font-size: 15px;
+    color: gray;
+}
+
+
+
+#banner{	
+	background: #eee;
+    padding: 4vw;
+}
+
+
+#banner .imgboard{
+    background: url('../img/Office-and-new-platform-interior-wallpapers.jpg') no-repeat center;
+    background-size: cover;
+    height: 24vw;
+    border: 2vw solid white;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+    
+}
+
+
+
+
+
+#banner h1{
+    font-family: 'dub';
+    font-weight: 600;
+    font-size: 3.5vw;
+}
+
+#banner .ycenter{
+    margin: 5vw 0px;
+}
+
+.banner-btn{
+    font-family: 'gsl';
+    font-weight: 700;
+    padding: 3px 0px;
+    background: none;
+	color: #333;
+	font-size: 18px;
+    width: 35vw;
+    margin-top: 3vw;
+    border: 2px #333 solid;
+    border-radius: 2px;
+}
+
+.banner-btn:hover{
+	color: white;
+    background-color: #123c88;
+    border: 2px #123c88 solid;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 959px){
+
+    #home h1{
+        font-size: 40px;
+    }
+
+
+
+    .steps {
+    padding: 10px 1vw;
+    }
+
+    #quote-carousel{
+        margin: 2vw;
+    }
+
+    .dotw h1{
+        margin-left: 2vw;
+
+    }
+    
+    
+}
+
+@media screen and (max-width: 767px){
+
+
+    #home {
+        width: 100%
+    }
+
+    #home h1 {
+        font-size: 6vw;
+    }
+
+    #home p {
+        font-size: 3.4vw;
+        margin-bottom: 6vw;
+    }
+
+    #home {
+        top: 14vw;
+    }
+
+
+
+
+
+
+
+
+
+    #get_started_button{
+        width: initial;
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+
+    .how h1{
+        color: #bfbfbf;
+        border-left: 4px solid #bfbfbf;
+        padding-left: 20px;
+        text-align: left;
+        font-weight: normal;
+    }
+
+    .cards{
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 3vw;
+    }
+    .steps {
+        text-align: left;
+        padding: 0vw;
+        margin: 0px;
+    }
+
+    .stepcard {
+        background: none;
+        padding: 0vw;
+        margin: 0px;
+    }
+
+    .stepcard > img{
+        float: left;
+        width: 16vw;
+        min-width: 80px;
+        height: auto;
+        margin: 0px;
+    }
+
+
+    #banner{
+        padding-bottom: 60px;
+         
+    }
+    #banner .imgboard{
+        height: 48vw;
+    }
+
+
+    #banner h1{
+        
+        font-size: 6vw;
+    }
+
+    #banner .ycenter{
+        margin:0px;
+    }
+
+}
+
+
+@media screen and (max-width: 639px){
+
+    #mycarousel .item {
+        height: 360px;
+    }
+
+
+    #get_started_button{
+        width: initial;
+        padding: 2px;
+        padding-left: 3vw;
+        padding-right: 3vw;
+        border: 1px solid white;
+    }
+
+    .top-carousel .carousel-indicators{
+        top: 320px;
+        bottom: auto;
+    }
+
+    .dotw h1{
+        font-size: 7vw;
+        border-left: none;
+        padding-left: 0px;
+    }
+    .why_ans > div{
+        padding: 0px;
+    }
+
+    .why .responsive{
+        width: 100%;
+        height: 100px;
+        padding: 5px 0px;
+    }
+    .why .responsive img{
+        float: left;
+    }
+    .why .responsive p{
+        margin-left: 92px;
+        text-align: left;
+        padding: 3vw 6vw 10px 10px;
+        font-size: 3vw;
+    }
+}
+
+
+@media screen and (max-width: 480px){
+    #mycarousel .item {
+        height: 60vw;
+    }
+    .top-carousel .carousel-indicators{
+        top: 55vw;
+        bottom: auto;
+    }
+
+    .top-carousel .carousel-caption{
+        transform: scale(0.6, 0.6);
+        left: -60px !important;
+        bottom: -10px !important;
+    }
+
+    #quote-carousel{
+        max-height: 480px;
+    }
+
+    #quote-carousel .carousel-indicators li {
+        width: 8vw;
+        height: 8vw;
+        cursor: pointer;
+        border: 0.4vw solid #CCC;
+        border-radius: 50px;
+        opacity: 0.8;
+        overflow: hidden;
+        transition: all 0.4s;
+    }
+
+    #quote-carousel .carousel-indicators .active {
+        background: #333333;
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%;
+        border-color: #f33;
+        opacity: 1;
+        overflow: hidden;
+    }
+
+    .why .responsive p{
+        font-size: 14px;
+        padding: 5vw 6vw 10px 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

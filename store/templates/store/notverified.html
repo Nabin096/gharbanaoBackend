@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load staticfiles %}
+
+<head>
+    <title>Login Error</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'store/css/notverified.css' %}">
+</head>
+<body>
+    <center>
+        <div id="window" align="">
+            <img src="{% static 'store/img/error.png' %}">
+            {% if dbuser %}
+
+            <p>DesignerID <span> {{ dbuser.designerID }} </span> is not verified to use GharBanao Store yet.<br> Click continue to go to the verification page.</p>
+            <a id="continue" href="{% url 'store:getverified' %}">continue</a>
+
+            {% endif %}
+        </div>
+    </center>
+
+</body>
+</html>

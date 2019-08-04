@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="{% static 'customers/img/favicon.png' %}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{job.name}} - My Project</title>
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/projectdashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+
+
+</head>
+
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <center>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </center>
+            </button>
+
+            <a class="navbar-brand" href="{% url 'customers:index' %}"><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li><a href="{% url 'customers:howitworks' %}">How it works<span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'customers:ourdesign' %}">Designs<span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'customers:blogs' %}">Blog<span class="sr-only">(current)</span></a></li>-->
+                <li><a href="{% url 'customers:logout' %}" class="btn my_project">Logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- End of nav -->
+
+<div class="container-fluid page" id="page">
+    <!-- Page Starts-->
+    <div class="row no-margin">
+        <div class="col-xs-2 no-padding page-nav">
+            <ul class="tab-links">
+                <li >
+                    <a data-toggle="tab" href="#update">Post update</a>
+                </li>
+
+                <li >
+                    <a data-toggle="tab" href="#feed">Updates feed</a>
+                </li>
+
+                <li >
+                    <a data-toggle="tab" href="#details">Project details</a>
+                </li>
+
+                <li >
+                    <a data-toggle="tab" href="#designer">Your designer</a>
+                </li>
+
+                <li >
+                    <a data-toggle="tab" href="#contacts" >Contact details</a>
+                </li>
+                <li>
+                    <a href="{% url 'customers:login' %}" >Refresh</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-6 no-padding tab-content">
+
+            <div id="update" class="col-xs-12 tab-pane fade in active">
+                <div class="row no-margin block">
+                    <h3>Have an update? Post here</h3>
+
+                    <form action="{% url 'customers:update' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row no-margin"><textarea class="post-text" name="article" placeholder="Enter your update here"></textarea></div><br>
+                        <div class="col-sm-6 no-padding"><input type="file" name="image"></div>
+                        <div class="col-sm-6 no-padding"><button type="submit" class="submit-btn">Submit</button></div>
+                    </form>
+                </div>
+
+                <div class="row no-margin block">
+                    <h4>Recent Updates</h4>
+                    {% for x in u|slice:":10" %}
+                    <div class="row no-margin">
+                        <p> <span  class="recent-author">{{x.author}} : </span> {{x}}
+                            {% if x.image %}
+                            <img src="{% static 'designers/img/attachment.png'%}">
+                            {% endif %}
+                            <span class="recent-time"> <i> on {{x.date}}</i> </span> </p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            <div id="feed" class="col-xs-12 tab-pane fade">
+                <div class="row no-margin main-info updates">
+                    {% for x in u %}
+                    <div class="row no-margin block">
+                        <div class="col-sm-1 col-xs-2 no-padding">
+
+                            {% if x.designer %}
+
+                            <div class="profpic" style="background: url({{d.profilepic.url}}) no-repeat center; background-size: cover"></div>
+                            {% else %}
+                            <img src="{% static 'customers/img/face1.jpg'%}" class="img-responsive">
+                            {% endif %}
+
+                        </div>
+                        <div class="col-sm-11 col-xs-10 ">
+                            <p class="author"><b>{{x.author}}</b></p>
+
+                            <p class="update-content">
+
+                                <i>"{{x}}"</i>
+                            </p>
+                            {% if x.image %}
+                            <img src="{{x.image.url}}" class="img-responsive">
+
+                            {% endif %}
+                            <p class="daye">{{x.date}}</p>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <br>
+            </div>
+
+            <div id="details" class="col-xs-12 tab-pane fade">
+                <div class="row table-responsive table-info block">
+                    <table class="table">
+
+                        <h3>Project Details</h3>
+                        <br>
+
+                        <tbody>
+                        <tr>
+                            <td><b>Room-type:</b></td>
+                            <td><span class="blue_color">{{job.roomtype}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>Property-type:</b></td>
+                            <td><span class="blue_color">{{ job.lifespan}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>Area:</b></td>
+                            <td><span class="blue_color">{{job.area}} sqm</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>Estimated Budget:</b></td>
+                            <td><span class="green_color">{{job.estimatedbudget}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>Requirements:</b></td>
+                            {% if j.requirements %}
+                            <td><span class="blue_color">{{job.requirements}}</span></td>
+                            {% else %}
+                            <td><span class="blue_color">N/A</span></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td><b>Projects-type:</b></td>
+                            {% if job.execution %}
+                            <td><span class="execution">Design + Implementation</span></td>
+                            {% else %}
+                            <td><span class="design">Design</span></td>
+                            {% endif %}
+                        </tr>
+
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+            <div id="designer" class="col-xs-12 tab-pane fade">
+                <div class="row no-margin block">
+                    <div class="col-xs-3">
+                        <img src="{{d.profilepic.url}}" class="img-responsive">
+                    </div>
+
+                    <div class="col-xs-9">
+                        <p class="dname"><b>{{d.name}}</b></p>
+                        <p class="dfirm">{{d.firmname}}</p>
+                        <p class="dpoints">Gharanao Points: {{d.points}}</p>
+
+                    </div>
+                </div>
+
+                <div class="row no-margin block">
+                    <h3>Portfolio</h3><hr>
+                    <div class="col-sm-4"><img src="{{d.design1.url}}" class="img-responsive"></div>
+                    <div class="col-sm-4"><img src="{{d.design2.url}}" class="img-responsive"></div>
+                    <div class="col-sm-4"><img src="{{d.design3.url}}" class="img-responsive"></div>
+                </div>
+
+                <div class="row no-margin block">
+                    <h3>About the designer</h3>
+                    <hr>
+                    <h5>{{d.AboutMe}}</h5>
+                </div>
+
+                <div class="row no-margin block">
+                    <h3>About the designs</h3>
+                    <hr>
+                    <h5>{{d.AboutYourDesigns}}</h5>
+                </div>
+
+            </div>
+
+            <div id="contacts" class="col-xs-12 tab-pane fade">
+
+                <div class="row no-margin cont-profile block">
+                    <div class="col-xs-4 no-padding cont_pro"  style="background: url({{d.profilepic.url}}) no-repeat center; background-size: cover;">
+
+                    </div>
+
+                    <div class="col-xs-8">
+                        <h3>Designer contact details</h3>
+                        <hr>
+                        <h5><b>Email ID:</b> {{d.email}} </h5>
+                        <h5><b>Phone no:</b> {{d.contact}} </h5>
+                    </div>
+                </div>
+
+                <div class="row no-margin cont-profile block">
+                    <div class="col-xs-4 no-padding cont_pro"  style="background: url({% static 'customers/img/face1.jpg'%}) no-repeat center; background-size: cover;">
+
+                    </div>
+
+                    <div class="col-xs-8">
+                        <h3>Customer contact details</h3>
+                        <hr>
+                        <h5><b>Email ID:</b> {{job.email}} </h5>
+                        <h5><b>Phone no:</b> {{job.contact}} </h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-4 no-padding common-col">
+            <div class="col-xs-12 no-padding block">
+                <h4>Recent pictures</h4>
+                <hr>
+                {% for x in u|slice:":12" %}
+                {% if x.image %}
+                <div class="col-xs-4 no-padding">
+                    <div class="row no-margin recent-pic" style="background: url({{x.image.url}}) no-repeat center; background-size: cover;">
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="col-xs-12 no-padding block">
+                <h4>Complaints</h4><hr>
+                <form action="{% url 'customers:profile_handler' %}" method="get">
+                    <textarea name="complain" class="complaint-form" placeholder="Write your complaints here (if any)"></textarea><br>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--footer-->
+    <div class="container footer">
+        <div class="row"><!-- row -->
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 tyc"><!-- widgets column center -->
+                <img class="img-responsive" src="{% static 'customers/img/logo_bw.png' %}">
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Designers</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">LEGAL</h4>
+                    <ul>
+                        <li><a  href="#">Terms and Conditions</a></li>
+                        <li><a  href="#">Privacy Policy</a></li>
+                        <li><a  href="#">Payment Securities</a></li>
+                        <li><a  href="#">Partners</a></li>
+                    </ul>
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-sm-4 col-xs-12 mycol list"><!-- widgets column left -->
+                    <h4 class="title-widget">CONNECT</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/GharBanao/"><img src="{% static 'customers/img/fb.png' %}"></a>
+                        <a href="https://twitter.com/GharBanao"><img src="{% static 'customers/img/tweet.png' %}"></a>
+                        <a href="https://www.linkedin.com/company-beta/10652164/"><img src="{% static 'customers/img/in.png' %}""></a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center><p class="copyright"> Copyright © 2017 Tune Your Construction (P) Ltd.</p></center>
+    </div>
+
+
+
+</div>
+<script src="{% static 'customers/js/jquery.min.js' %}"></script>
+<script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+<!--<script>
+         $(document).ready(function(){
+             $(".recent-pic").width($(".recent-pic").height());
+         });
+    </script>-->
+</body>
+</html>

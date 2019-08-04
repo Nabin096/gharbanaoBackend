@@ -1,0 +1,161 @@
+.row{
+	padding: 0px;
+	margin: 0px;
+}
+
+
+.most_pop{
+	background-color: white;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #ccc7c7;
+	border-top: 1px solid #ccc7c7;
+	
+}
+
+.most_pop_blog{
+	background-color: white;
+	padding: 10px !important;
+	
+}
+.most_pop_blog a{
+	text-decoration: none;
+	color: black;
+}
+.most_pop_blog a:hover{
+	text-decoration: none;
+	color:#123c88;
+}
+.background_gray{
+	background-color: #d6d6d6;
+}
+
+
+.most_recent{
+ 	background: #f8f8f8;
+
+}
+
+.search_blog input{
+    width: calc(100% - 125px);
+    border: #123c88 2px solid;
+    border-radius: 4px;
+    padding: 5px 10px
+}
+
+.search_blog input:focus{
+    outline: none;
+    background: #f8f8f8;
+}
+
+.search_blog button{
+    color: #123c88;
+    background: none;
+    width: 120px;
+    border: #123c88 2px solid;
+    border-radius: 4px;
+    padding: 5px 10px
+}
+
+.search_blog button:hover{
+    background: #123c88;
+    color: white;
+}
+
+.bloglist{
+	max-width: 960px; 
+	margin: auto;
+}
+
+.main_bar{
+	padding: 20px;
+	background-color: white;
+	-webkit-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+	-moz-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+	box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.12);
+	border-bottom: 1px solid #ccc7c7;
+	margin-bottom: 50px;
+
+}
+
+h2{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 600;
+}
+
+.viewblog{
+    height: 155px;
+    width: 95%;
+    position: absolute;
+    background: none;
+}
+
+.article > div {
+	display: inline-block;
+}
+
+.blogcover{
+    width: 100%;
+    height: 420px;
+}
+
+.thumb{
+	width: 240px;
+	overflow: hidden;
+	height: 150px;
+}
+
+.thumb > div{
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.content{
+    padding: 0px 5px;
+	height: 150px;
+	width: calc(100% - 250px);
+	vertical-align: top;
+}
+
+.content h2{
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+}
+
+
+.preview{
+    color: gray;
+	line-height: 20px;
+    height: 80px;
+    overflow: hidden;
+}
+
+
+.blog-content{
+    margin-top: -5px;
+}
+
+@media screen and (max-width: 639px){
+    .viewblog{
+        width: 93%;
+    }
+
+    .thumb{
+        max-width: 240px;
+        width: 37.5vw;
+    }
+
+    .content h2{
+        font-size: 5vw;
+    }
+
+    .content{
+        width: calc(100% - 40vw);
+    }
+}
+
+
+
+
+
+

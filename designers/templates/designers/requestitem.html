@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Item</title>
+</head>
+<body>
+     <form method="POST" action="{% url 'designers:requestitem' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    Name:
+    <input type="text" name="object">
+    <br>
+     Quantity:
+    <input type="text" name="qty" >
+     <br>
+     Requirements(if any):
+    <input type="text" name="requirements" >
+     <br>
+
+    <button type="submit">Request</button>
+</form>
+<br>
+<table style="border:solid;">
+    <thead>
+<tr style="border:solid;">
+    Objects
+</tr>
+<tr style="border:solid;">
+    Quantity
+</tr>
+<tr style="border:solid;">
+    Status
+</tr>
+<tr style="border:solid;">
+    Requirements
+</tr>
+</thead>
+{% for x in requests %}
+
+
+     <tr style="border:solid;">
+         <td style="border:solid;">
+             {{x.object}}
+         </td>
+         <td style="border:solid;">
+             {{x.qty}}
+         </td>
+         <td style="border:solid;">
+             {{x.status}}
+         </td>
+         <td style="border:solid;">
+             {% if x.requirements %}
+               {{x.requirements}}
+             {% else %}
+             N/A
+             {% endif %}
+         </td>
+     </tr>
+
+
+{% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<p>hello</p>
+{% if filter.count > 0 %}
+
+
+{% for  product in filter %}
+  <li>{{product.name}}</li>
+{% endfor %}
+
+{% endif %}

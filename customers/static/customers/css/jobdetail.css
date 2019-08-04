@@ -1,0 +1,17 @@
+.main_bar{
+	padding-right: 50px;
+	padding-left: 50px;
+}
+.next_button{
+	border: 1px solid #dec054;
+
+}
+.next_button:hover{
+	border: 1px solid #dec054;
+	background-color: #eace17;
+	
+}
+.form-control {
+    display: block;
+    width: 10%
+     }

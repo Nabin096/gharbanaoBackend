@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+<form method="post" action="{% url 'designers:edit_about'  %}" >
+    {% csrf_token %}
+    AboutMe: <input type="text" name="AboutMe">
+    <br>
+    AboutYourDesigns:<input type="text" name="AboutYourDesigns">
+    <br>
+    <button type="submit">Next</button>
+
+</form>
+</body>
+</html>

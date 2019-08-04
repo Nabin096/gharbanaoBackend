@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css' %}">
+</head>
+<body>
+    {{ product.name }} <br>
+    {{ category }} <br>
+    <input type="number" id="qty" min="0"><br>
+    <button class="btn btn-primary" id="{{ product.id }}" value="{{ product.id }}">Add to Cart</button>
+
+
+
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+    <script>
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        $(document).ready(function() {
+            $("#{{ product.id }}").click(function() {
+                id = $("#{{ product.id }}").val();
+                qty = $("#qty").val();
+                csrf = getCookie('csrftoken');
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8000/store/addtocart/",
+                    data: {
+                        'id': id,
+                        'qty': qty,
+                        'csrfmiddlewaretoken': csrf,
+                    },
+                    success: added,
+                    dataType: 'html'
+                });
+            });
+        });
+
+        function added(data, textStatus, jqXHR) {
+            console.log("added");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="{% static 'customers/img/favicon.png' %}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - GharBanao</title>
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed">
+    <link rel="stylesheet" href="{% static 'customers/css/gharbanaoblog.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+
+            </button>
+
+            <a class="navbar-brand" href="{% url 'customers:index' %}"><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'customers:howitworks' %}">How it works<span class="sr-only">(current)</span></a></li>
+                <!--<li><a href="{% url 'customers:blogs' %}">Helpdesk<span class="sr-only">(current)</span></a></li>-->
+                <li><a href="{% url 'customers:ourdesign' %}">Designs<span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'customers:blogs' %}">Blog<span class="sr-only">(current)</span></a></li>
+                <li><button type="button" class="btn my_project" data-toggle="collapse" data-target="#login" aria-controls="nav-collapse" >My Project</button></li>
+
+                <div id="login" class="collapse">
+                    <div class="login_window">
+                        <button type="button" class="close" data-toggle="collapse" data-target="#login">&times;</button>
+                        <form class="login-form" method="post" action="{% url 'customers:login' %}">
+                            {% csrf_token %}
+                            <br>
+                            <h2>Login</h2>
+                            <input type="text" placeholder="Enter ProjectID" name="email" required>
+                            <input type="password" placeholder="Enter password" name="password" required>
+
+                            <button type="submit">Login</button>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- End of nav -->
+
+<div class="container-fluid page" id="page">
+    <!-- Page Starts-->
+    <div class="container-fluid row">
+        <!--<div class="col-xs-12">
+        <h2 class="border_right">Most Popular Articles</h2><hr>
+
+
+                       <div class="row">
+
+                                           <div class="col-xs-4 most_pop_blog">
+                                                <div class="row most_pop_blog_pic">
+                                                    <a href=""><img src="static/customer/img/Kids-drawing-room-interior-HD-wallpapers.jpg" class="img-responsive">
+                                                </div></a>
+                                                <div class="row most_pop_blog_title">
+                                                     <a href="article.html"><h2>Titles</h2></a>
+                                                     <p>
+                                                      Posted By <a href="designersprofile.html">Eli Marcy</a> 3 days ago
+                                                    </p>
+                                                </div>
+                                           </div>
+                                           <div class="col-xs-4 most_pop_blog">
+                                                 <div class="row most_pop_blog_pic">
+                                                  <a href=""> <img src="static/customer/img/New-home-interior-and-furniture-HD-wallpapers.jpg" class="img-responsive"></a>
+                                                </div>
+                                                <div class="row most_pop_blog_title">
+                                                     <a href=""><h2>Titles</h2></a>
+                                                        <p>
+                                                      Posted By <a href="">M.Shehan</a> 3 days ago
+                                                    </p>
+                                                </div>
+                                           </div>
+                                           <div class="col-xs-4 most_pop_blog">
+                                                 <div class="row most_pop_blog_pic">
+                                                   <a href=""> <img src="static/customer/img/Office-and-new-platform-interior-wallpapers.jpg" class="img-responsive"></a>
+                                                </div>
+                                                <div class="row most_pop_blog_title">
+                                                     <a href=""><h2>Titles</h2></a>
+                                                    <p>
+                                                      Posted By <a href="">M.Shehan</a> 3 days ago
+                                                    </p>
+                                                </div>
+                                           </div>
+                      </div>
+
+        </div>-->
+
+    </div>
+
+
+    <div align="center" class="row container-fluid most_recent">
+        <div align="left" class="bloglist">
+            <div  class="col-xs-12 main_bar">
+                <div class="search_blog">
+                    <form method="GET" action="{% url 'customers:blogs' %}">
+                        <input name="searchfield" placeholder="Search by title, content or keywords.">
+                        <button type="submit">Search Article</button>
+                    </form>
+                </div>
+                <div class="row">
+                    <h2 class="border_right">Latest Articles</h2><hr>
+                </div>
+
+                {% for blog in blogList %}
+
+
+                    <div class="row article">
+                        <form action="{% url 'customers:specific_blog' %}" method="get">
+                        <button class="viewblog" name="url" value="{{blog.id}}" type="submit"></button>
+                        </form>
+                        <div class="thumb">
+                            {% if blog.image %}
+                            <div style="background: url({{blog.image.url}})  no-repeat center; background-size: cover">
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="content">
+
+                            <h2>{{blog.title}}</h2>
+                            <div class="preview">{{blog.subject}}</div>
+                            <div>
+                                <h6>Posted By <span style="color: #123c88"><b> {{blog.author.name}} </b></span> on {{blog.dated}}</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                <hr>
+                {% endfor %}
+
+            </div><hr>
+        </div>
+    </div>
+    <!-- Page Ends-->
+
+    <!--footer-->
+    <div class="container footer">
+        <div class="row"><!-- row -->
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 tyc"><!-- widgets column center -->
+                <img class="img-responsive" src="{% static 'customers/img/logo_bw.png' %}">
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Designers</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">LEGAL</h4>
+                    <ul>
+                        <li><a  href="#">Terms and Conditions</a></li>
+                        <li><a  href="#">Privacy Policy</a></li>
+                        <li><a  href="#">Payment Securities</a></li>
+                        <li><a  href="#">Partners</a></li>
+                    </ul>
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-sm-4 col-xs-12 mycol list"><!-- widgets column left -->
+                    <h4 class="title-widget">CONNECT</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/GharBanao/"><img src="{% static 'customers/img/fb.png' %}"></a>
+                        <a href="https://twitter.com/GharBanao"><img src="{% static 'customers/img/tweet.png' %}"></a>
+                        <a href="https://www.linkedin.com/company-beta/10652164/"><img src="{% static 'customers/img/in.png' %}""></a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center><p class="copyright"> Copyright © 2017 Tune Your Construction (P) Ltd.</p></center>
+    </div>
+
+
+
+</div>
+<script src="{% static 'customers/js/jquery.min.js' %}"></script>
+<script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+<script>
+$(document).mouseup(function(e)
+{
+    var container = $("#login");
+
+
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        container.removeClass("in");
+    }
+});
+</script>
+
+<script>
+$(document).mouseup(function(e)
+{
+    var container1 = $(".navbar-collapse");
+    var container2 = $(".navbar-toggle");
+
+    if (!container2.is(e.target) && container2.has(e.target).length === 0)
+        {    if (!container1.is(e.target) && container1.has(e.target).length === 0)
+            {
+                container1.removeClass("in");
+            }
+        }
+});
+</script>
+
+</body>
+</html>

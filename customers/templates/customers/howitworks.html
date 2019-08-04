@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="{% static 'customers/img/favicon.png' %}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GharBanao - Interior design hub</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'customers/css/howitworks.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+
+</head>
+
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+
+            </button>
+
+            <a class="navbar-brand" href="{% url 'customers:index' %}"><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'customers:howitworks' %}">How it works<span class="sr-only">(current)</span></a></li>
+                <!--<li><a href="{% url 'customers:blogs' %}">Helpdesk<span class="sr-only">(current)</span></a></li>-->
+                <li><a href="{% url 'customers:ourdesign' %}">Designs<span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'customers:blogs' %}">Blog<span class="sr-only">(current)</span></a></li>
+                <li><button type="button" class="btn my_project" data-toggle="collapse" data-target="#login" aria-controls="nav-collapse" >My Project</button></li>
+
+                <div id="login" class="collapse">
+                    <div class="login_window">
+                        <button type="button" class="close" data-toggle="collapse" data-target="#login">&times;</button>
+                        <form class="login-form" method="post" action="{% url 'customers:login' %}">
+                            {% csrf_token %}
+                            <br>
+                            <h2>Login</h2>
+                            <input type="text" placeholder="Enter ProjectID" name="email" required>
+                            <input type="password" placeholder="Enter password" name="password" required>
+
+                            <button type="submit">Login</button>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- End of nav -->
+
+<div class="container page" id="page">
+    <!-- Page Starts-->
+    <center>
+        <div class="main">
+            <h1>How It Works?</h1>
+            <div class="chart">
+                <div class="timeline">
+
+                    <div class="points"  style="max-width: 520px">
+                        <div class="thumb" style="">
+
+                            <img src="{% static 'customers/img//start.png' %}">
+                        </div>
+
+                        <div class="details">
+                            <div>
+                                <h2>Get Started</h2>
+                                <p> Tell us about the space, the way you want it to look, the amount you are willing to spend etc. The list of designers to choose from will be generated based on these data.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="points" style="margin-left: 0px">
+                        <div class="gap">
+                        </div>
+
+                        <div class="thumb">
+
+                            <img src="{% static 'customers/img/select.png' %}">
+                        </div>
+
+                        <div class="details">
+                            <div>
+                                <h2>Choose designer</h2>
+                                <p>From the list generated, choose a designer you would like to work with. While browsing through the list, you can open each designer's profile and check their portfolio.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="points"  style="margin-left: 60px";>
+                        <div class="gap">
+                        </div>
+
+                        <div class="thumb">
+
+                            <img src="{% static 'customers/img/create.png' %}">
+                        </div>
+
+                        <div class="details">
+                            <div>
+                                <h2>Create a Project</h2>
+                                <p>Provide your email id and phone no. to create your new project. A ProjectID and password will be mailed to you. Login using this data to view your Project Dashboard.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="points" style="margin-left: 120px;">
+                        <div class="gap" >
+                        </div>
+                        <div class="thumb">
+
+                            <img src="{% static 'customers/img/sched.png' %}">
+                        </div>
+
+                        <div class="details">
+                            <div>
+                                <h2>Schedule Call</h2>
+                                <p>Pick a time, in the next 48 hours, when we can reach you via phone call. You can explain your project in detail and mention additional requirements, if any, during the call.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="points"  style="margin-left: 180px;">
+
+                        <div class="gap" >
+                        </div>
+
+                        <div class="thumb">
+
+                            <img src="{% static 'customers/img/start_working.png' %}">
+                        </div>
+
+                        <div class="details">
+                            <div>
+                                <h2>Start Working</h2>
+                                <p>Once your project is recieved and accepted by the designer, his/her contact details will be shared on your Project Dashboard. Start by fixing a date for site inspection.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="points"  style="margin-left: 240px;">
+                        <div class="gap" >
+                        </div>
+
+                        <div class="thumb">
+
+                            <img src="{% static 'customers/img/update.png' %}">
+                        </div>
+
+                        <div class="details">
+                            <div>
+                                <h2>Keep Updating</h2>
+                                <p>Post & check regular updates about progress like design, payments etc. Also you can write feedback, review or complaints on the dashboard at any time.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="points"  style="margin-left: 300px;">
+                        <div class="gap">
+                        </div>
+                        <div class="thumb">
+
+                            <img src="{% static 'customers/img/compl.png' %}">
+                        </div>
+
+                        <div class="details">
+                            <div>
+                                <h2>Completion</h2>
+                                <p> After the completion, please mark the project as completed and leave a rating.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </center>
+
+    <!-- Page Ends-->
+
+    <!--footer-->
+    <div class="container footer">
+        <div class="row"><!-- row -->
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 tyc"><!-- widgets column center -->
+                <img class="img-responsive" src="{% static 'customers/img/logo_bw.png' %}">
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Designers</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+                <div class="col-sm-4 col-xs-6 mycol list"><!-- widgets column left -->
+
+                    <h4 class="title-widget">LEGAL</h4>
+                    <ul>
+                        <li><a  href="#">Terms and Conditions</a></li>
+                        <li><a  href="#">Privacy Policy</a></li>
+                        <li><a  href="#">Payment Securities</a></li>
+                        <li><a  href="#">Partners</a></li>
+                    </ul>
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-sm-4 col-xs-12 mycol list"><!-- widgets column left -->
+                    <h4 class="title-widget">CONNECT</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/GharBanao/"><img src="{% static 'customers/img/fb.png' %}"></a>
+                        <a href="https://twitter.com/GharBanao"><img src="{% static 'customers/img/tweet.png' %}"></a>
+                        <a href="https://www.linkedin.com/company-beta/10652164/"><img src="{% static 'customers/img/in.png' %}""></a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center><p class="copyright"> Copyright © 2017 Tune Your Construction (P) Ltd.</p></center>
+    </div>
+
+
+
+</div>
+<script src="{% static 'customers/js/jquery.min.js' %}"></script>
+<script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+<script>
+$(document).mouseup(function(e)
+{
+    var container = $("#login");
+
+
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        container.removeClass("in");
+    }
+});
+</script>
+
+<script>
+$(document).mouseup(function(e)
+{
+    var container1 = $(".navbar-collapse");
+    var container2 = $(".navbar-toggle");
+
+    if (!container2.is(e.target) && container2.has(e.target).length === 0)
+        {    if (!container1.is(e.target) && container1.has(e.target).length === 0)
+            {
+                container1.removeClass("in");
+            }
+        }
+});
+</script>
+
+</body>
+</html>

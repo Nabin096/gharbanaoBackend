@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/png" href="{% static 'customers/img/favicon.png' %}"/>
+    <meta charset="UTF-8">
+    <title>Enter your details - GharBanao</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/bootstrap-theme.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'customers/css/info_page.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/template.css' %}">
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+
+            </button>
+
+            <a class="navbar-brand" href="{% url 'customers:index' %}"><img src="{% static 'customers/img/GharBanaoLogo_nav.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'customers:howitworks' %}">How it works<span class="sr-only">(current)</span></a></li>
+                <!--<li><a href="{% url 'customers:blogs' %}">Helpdesk<span class="sr-only">(current)</span></a></li>-->
+                <li><a href="{% url 'customers:ourdesign' %}">Designs<span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'customers:blogs' %}">Blog<span class="sr-only">(current)</span></a></li>
+                <li><button type="button" class="btn my_project" data-toggle="collapse" data-target="#login" aria-controls="nav-collapse" >My Project</button></li>
+
+                <div id="login" class="collapse">
+                    <div class="login_window">
+                        <button type="button" class="close" data-toggle="collapse" data-target="#login">&times;</button>
+                        <form class="login-form" method="post" action="{% url 'customers:login' %}">
+                            {% csrf_token %}
+                            <br>
+                            <h2>Login</h2>
+                            <input type="text" placeholder="Enter ProjectID" name="email" required>
+                            <input type="password" placeholder="Enter password" name="password" required>
+
+                            <button type="submit">Login</button>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container-fluid page" id="page">
+    <center>
+        <div class="info-win" >
+            <form method="post" action="{% url 'customers:job2' %}" align="center" >
+
+                <h2>Enter the following details</h2>
+                {% csrf_token %}
+
+                <input name="name" type="text" placeholder="Enter your name">
+                <br>
+                <input type="text" name="email" placeholder="Enter your e-mail ID">
+                <br>
+                <input name="contact" type="text" placeholder="Enter your phone number">
+                <br>
+                <h4>When will you be available for the call</h4>
+                <input name="freetime" type="datetime-local" placeholder="">
+                <button type="submit">Next</button>
+            </form>
+        </div>
+    </center>
+</div>
+
+<script src="{% static 'customers/js/jquery.min.js' %}"></script>
+<script src="{% static 'customers/js/bootstrap.min.js' %}"></script>
+<script>
+$(document).mouseup(function(e)
+{
+    var container = $("#login");
+
+
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        container.removeClass("in");
+    }
+});
+</script>
+
+<script>
+$(document).mouseup(function(e)
+{
+    var container1 = $(".navbar-collapse");
+    var container2 = $(".navbar-toggle");
+
+    if (!container2.is(e.target) && container2.has(e.target).length === 0)
+        {    if (!container1.is(e.target) && container1.has(e.target).length === 0)
+            {
+                container1.removeClass("in");
+            }
+        }
+});
+</script>
+
+</body>
+</html>

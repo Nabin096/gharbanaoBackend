@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail</title>
+</head>
+<body>
+<form name = "form" action = "{% url 'Mail' %}"
+         method = "POST" style="background-color:rgba(255,255,255,0.7);width:48.48%;border-radius:20px"  id="opening"  enctype="multipart/form-data">{% csrf_token %}
+          <div style="background:#008553 ;width=40%;border-top-left-radius:20px;border-top-right-radius:20px">
+
+        <p style="color:#FFFFFF;font-size:200%;margin-left:10%;padding-bottom:10px;padding-top:10px">Send Mail</p>
+
+         </div>
+
+
+
+         <br>
+           <div style = "max-width:100%;">
+             <p  style="padding-left:10%">Send Confirmation mail to :</p>
+
+            <center>
+
+               <input type = "text" style = "height:33px;width:80%;border-radius:6px"
+                   name = "Send_To" />
+            </center>
+         </div>
+
+         <br>
+         <div style = "max-width:100%;">
+
+          <div style = "max-width:100%;">
+            <center>
+
+               <button style = "border:0px; background-color:#008553; margin-top:8%;
+                  height:42px; width:80%;color:#FFFFFF;border-radius:6px" type = "submit"
+                  value = "Login"  >
+                  <strong>Send</strong>
+               </button><br>
+
+            </center>
+
+         </div>
+
+      </form>
+
+</body>
+</html>

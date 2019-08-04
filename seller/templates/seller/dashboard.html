@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/bootstrap-select/dist/css/bootstrap-select.min.css' %}">
+</head>
+<body>
+
+
+     <u><h1 align="center">     {% for user in dbuser %}
+            {{ user.name }}
+          {% endfor %}
+     </h1>
+     </u>
+      <br>
+     <form method="get"  action="{% url 'seller:add'  %}" style="align-content: flex-end;align-self: right ;height:30px;width: 35%;" float="right">
+
+         <input type="text" name="searchfield">
+         <button type="submit" >Search</button>
+     </form>
+     Enter or update product:
+      <form method="post" action="{% url 'seller:add'  %}" >
+          {% csrf_token %}
+          <br>name
+          <input type="text" name="name" required>
+          company:
+          <input type="text" name="company" required>
+          price:
+          <input type="text" name="price" required>
+          category:
+          <select class="selectpicker" name="category" onchange="showfield(this.options[this.selectedIndex].value)" required>
+              {% for category in categories %}
+              <option value="{{ category.name }}">{{ category.name }}</option>
+              {% endfor %}
+              <option value="Other">Other</option>
+          </select>
+          <div id="select-other"></div>
+          <br>
+          <br>
+          availabile:
+
+          <select name="availability"  value="True">
+
+          <option>True</option>
+           <option>False</option>
+      </select>
+          <br>
+          <br>
+          <button type="submit">Add/Update</button>
+      </form>
+    <table>
+      {% for product in products %}
+         <tr>
+            <td>
+                {{ product.name }}
+            </td>
+            <td>
+                {{ product.company }}
+            </td>
+            <td>
+                {{ product.price }}
+            </td>
+            <td>
+                {{ product.availability }}
+            </td>
+            <td>
+                {{ product.category.name }}
+            </td>
+         </tr>
+      {% endfor %}
+    </table>
+
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'seller/js/site.js' %}"></script>
+</body>
+</html>

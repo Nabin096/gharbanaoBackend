@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Detail</title>
+</head>
+<body>
+     Job detail
+<form method="post" action="{% url 'customers:job' %}" align="center" style="border:solid;height:400px;width:60%;align:center;margin-left:20%">
+    {% csrf_token %}
+    <br>room type:
+    <select name="roomtype" >
+        <option>Home</option>
+        <option>Office</option>
+        <option>Bar</option>
+        <option>Others</option>
+
+    </select>
+    <br>Property type:
+    <select name="lifespan">
+        <option>
+            New Property
+        </option>
+        <option>
+        Old Property
+    </option>
+    </select>
+    <br>
+    <select name="execution">
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+    <br> area:
+    <input type="text" name="area">
+    <br>estimatedbudget:
+    <input name="estimatedbudget" type="text">
+    <br>
+    requirements:
+    <textarea name="requirements" type="text"></textarea>
+    <br>
+    <button type="submit">Next</button>
+</form>
+</body>
+</html>

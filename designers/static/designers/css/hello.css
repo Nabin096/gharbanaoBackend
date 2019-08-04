@@ -1,0 +1,111 @@
+.row{
+    margin: 0px 0px;
+}
+
+.head h2{
+    color: #123c88;
+    width: 75vw;
+}
+
+.head h4, .head h5{
+    color: white;
+    width: 65vw;
+    text-shadow: 1px 1px 3px black;
+
+}
+
+.head h5{
+    color: white;
+    width: 45vw;
+    text-shadow: 1px 1px 3px black;
+
+}
+
+@media screen and (max-width: 767px){
+    .head h2{
+        width: 480px;
+    }
+    .head h4{
+        width: 100%;
+    }
+
+    .head h5{
+        width: 480px;
+    }
+}
+
+@media screen and (max-width: 479px){
+    .head h2{
+        width: 100%;
+    }
+    .head h5{
+        width: 100%;
+    }
+}
+
+.steps{
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    background: white;
+    padding: 1px 15px;
+    max-width: 480px;
+    float: none;
+    margin: 0px auto;
+}
+
+hr{
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+
+li{
+    list-style: none;
+    margin: 10px 0px;
+}
+
+li div{
+    display: inline-block;
+}
+
+.number{
+    font-size: 40px;
+    color: #123c88;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #123c88;
+    border-radius:50%
+}
+
+.content{
+    padding-left: 10px;
+    min-height: 80px;
+    width: calc(100% - 60px);
+    vertical-align: top;
+}
+
+.content h3{
+    color: #123c88;
+    margin: 5px;
+}
+
+.content h5{
+    color: #666;
+    margin: 5px;
+}
+
+.proceed{
+    margin: 10px 0px;
+}
+
+.proceed a{
+    background: #123c88;
+    padding: 8px 20px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+}
+
+.proceed a:hover{
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+}

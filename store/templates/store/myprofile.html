@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+</head>
+<body>
+    {% if dbuser %}
+        {{ dbuser.name }} <br>
+        {% if vdes %}
+            {{ vdes.verified }}
+        {% endif %}
+    {% endif %}
+</body>
+</html>

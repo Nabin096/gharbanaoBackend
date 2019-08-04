@@ -1,0 +1,73 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background: #2c3338;
+}
+
+@font-face {
+    font-family: 'UbuntuL';
+    src: url('../fonts/Ubuntu-L.woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'NexaLight';
+    src: url('../fonts/NexaLight.woff');
+    font-weight: normal;
+    font-style: normal;
+    font-size-adjust: 0.1;
+
+}
+
+
+@font-face {
+    font-family: 'btn';
+    src: url('../fonts/OratorStd.woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+#window{
+    border-radius: 4px;
+    margin-top: 150px;
+    padding: 50px;
+    width: 40%;
+
+}
+
+#window img{
+    width: 100px;
+}
+
+
+#window p{
+    margin:-25px 0px 40px 0px;
+    font-family: 'UbuntuL';
+    font-size: 16px;
+    color: #eee;
+}
+
+#continue{
+    font-family: 'btn';
+    font-size: 16px;
+    font-weight: 700    ;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: -2px;
+    padding:16px  60px 16px 60px;
+    color: #eee;
+    background: #008553;
+    border-radius: 4px;
+    }
+
+#continue:hover {
+    background: #00623c;
+    color: white;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4),
+                inset 1px 1px 3px rgba(255, 255, 255, 0.1),
+                inset -1px -1px 3px rgba(0 ,0 ,0 ,0.1);
+}
